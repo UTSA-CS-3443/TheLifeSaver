@@ -9,7 +9,7 @@
    <children>
       <AnchorPane layoutX="-112.0" layoutY="-224.0" prefHeight="800.0" prefWidth="800.0">
          <children>
-            <Label layoutX="400.0" layoutY="392.0" text="TEST LABEL" />
+            <Label layoutX="400.0" layoutY="392.0" text="LABEL TEST" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
