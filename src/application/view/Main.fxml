@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
-      <AnchorPane layoutX="-112.0" layoutY="-224.0" prefHeight="800.0" prefWidth="800.0">
-         <children>
-            <Label layoutX="400.0" layoutY="392.0" text="LABEL TEST" />
-         </children></AnchorPane>
+      <ImageView fitHeight="800.0" fitWidth="801.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/main%20page.png" />
+         </image>
+      </ImageView>
+      <Button id="MainScreenButtons" fx:id="btn1" layoutX="163.0" layoutY="618.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Daily" />
+      <Button id="MainScreenButtons" fx:id="btn2" layoutX="411.0" layoutY="618.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Monthly" />
+      <Button id="MainScreenButtons" fx:id="btn3" layoutX="535.0" layoutY="618.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Reminders" />
+      <Button id="MainScreenButtons" fx:id="btn4" layoutX="284.0" layoutY="618.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Weekly" />
    </children>
 </AnchorPane>
