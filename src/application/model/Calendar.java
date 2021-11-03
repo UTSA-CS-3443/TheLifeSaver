@@ -48,11 +48,5 @@ public class Calendar {
     public void addPlan(Plan newPlan) {
         this.plans.add(newPlan);
     }
-    
-    public String toString() {
-    	//TODO
-    	String s = "";
-    	return s;
-    }
 
 }
