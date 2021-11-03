@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RemindersController">
+   <children>
+      <Pane prefHeight="800.0" prefWidth="800.0">
+         <children>
+            <CheckBox layoutX="217.0" layoutY="66.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font></CheckBox>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
-
