@@ -70,4 +70,13 @@ public class Plan { //java already has an Event class built in so i went with th
 		this.note = note;
 	}
 	
+	public String convertToMilitary(String time) throws ParseException { // Make sure time is in format: "10:30 PM"
+		
+		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
+		Date date = parseFormat.parse(time);
+		
+		return displayFormat.format(date);
+	}
+	
 }
