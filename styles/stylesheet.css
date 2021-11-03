@@ -30,3 +30,10 @@
      -fx-background-insets: 2 0 0 0,2 0 3 0,2 0 4 0,2 0 5 0;
 
 }
+
+/*---------------- */
+
+#NavigationButtons:hover
+{
+	-fx-background-color: #6695e2
+}
