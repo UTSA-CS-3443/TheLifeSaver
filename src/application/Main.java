@@ -8,15 +8,19 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	
+	public static Stage stage;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Main.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Monthly.fxml"));
 			AnchorPane root = (AnchorPane) loader.load();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			//
+			stage = primaryStage;
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

@@ -1,8 +1,5 @@
 package application.model;
 
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Plan { //java already has an Event class built in so i went with this instead
