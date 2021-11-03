@@ -2,6 +2,7 @@ package application.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,12 +42,27 @@ public class Occation {
 				if(temp[3].equals("T")) {
 					isRemind = true;
 				}
-				SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
-				Date date = format.parse(temp[0]);
+				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				
+				Date date = null;
+				try {
+					date = format.parse(temp[0]);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				Plan event = new Plan(date, temp[1], temp[2], isRemind, temp[4]);
+				
 				boolean added = false;
-				for(int i = 0; i < events.size(); i++) {
-					if(event.getDate().compareTo(events.get(i).getDate()) <= 0) {
+				
+				for( int i = 0; i < events.size(); i++ ) {
+					if(event.getDateOb().compareTo(events.get(i).getDateOb()) < 0 ){
+						events.add(i,event);
+						added = true;
+						break;
+					}
+					else if(event.getDateOb().compareTo(events.get(i).getDateOb() ) == 0 ) {
 						if(Integer.parseInt(event.getTime()) < Integer.parseInt(events.get(i).getTime())){
 							events.add(i, event);
 							added = true;
@@ -54,6 +70,7 @@ public class Occation {
 						}
 					}
 				}
+				
 				if(!added) {
 					events.add(event);
 				}
@@ -62,7 +79,7 @@ public class Occation {
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
-		return events;
+//		return events;
 	}
 
 	/**

@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 
+import application.model.Occation;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,8 +26,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		String month = now.format(dtf).split("/")[0];
 		
 		
-		//Occation eventlist = new Occation();
-		//eventlist.loadData("data/monthlyEvents.csv");
+		Occation eventlist = new Occation();
+		eventlist.loadEvents("data/monthlyEvents.csv");
 		
 		//find the number of days in the month
 		Calendar c = Calendar.getInstance();
@@ -57,14 +58,16 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			weeks++;
 		}
 		
-		System.out.println(month);
-		System.out.println(days);
-		System.out.println(fdaypos);
-		System.out.println(weeks);
-		
 		//load month data into the calender
 		
 		//load data from eventlist into the calender
+		
+		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
+			if(eventlist.getEvents().get(i).getDate().split("/")[0].equals(month)) {
+				System.out.println(eventlist.getEvents().get(i).getName()+"-"+eventlist.getEvents().get(i).getDate() );
+				System.out.println(eventlist.getEvents().get(i).getNote());
+			}
+		}
 		
 	}
 
