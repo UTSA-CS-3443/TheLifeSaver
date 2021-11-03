@@ -13,16 +13,9 @@ public class Plan { //java already has an Event class built in so i went with th
 	private boolean remind;
 	private String note;
 	
-	public Plan( String date, String time, String name, boolean remind, String note ) {
+	public Plan( Date date, String time, String name, boolean remind, String note ) {
 		
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-		
-		try {
-			this.date = format.parse(date);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block lmoa
-			e.printStackTrace();
-		}
+		this.date = date;
 		this.time = time;
 		this.name = name;
 		this.remind = remind;
