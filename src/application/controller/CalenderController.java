@@ -39,7 +39,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			break;
 			case "TUESDAY": 	fdaypos = 1;
 			break;
-			case "WENESDAY":	fdaypos = 2;
+			case "WEDNESDAY":	fdaypos = 2;
 			break;
 			case "THURSDAY":	fdaypos = 3;
 			break;
