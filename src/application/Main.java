@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Monthly.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Main.fxml"));
 			AnchorPane root = (AnchorPane) loader.load();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);

@@ -13,16 +13,16 @@ public class MainController implements EventHandler<ActionEvent> {
 	
 	// Variable names will be btn1-4 until we actually finish the fxmls
 	@FXML
-	private Button btn1;
+	private Button monthlyBtn;
 	
 	@FXML
-	private Button btn2;
+	private Button weeklyBtn;
 	
 	@FXML
-	private Button btn3;
+	private Button dailyBtn;
 	
 	@FXML
-	private Button btn4;
+	private Button remindBtn;
 	
 	@Override
 	public void handle(ActionEvent event) {
@@ -36,22 +36,22 @@ public class MainController implements EventHandler<ActionEvent> {
 			// **We can edit the case names if needed**
 			
 			case "Daily": 
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("view/Daily.fxml"));
+				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
 				rootPane.getChildren().setAll(newPane);
 				break;
 				
 			case "Monthly": 
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("view/Monthly.fxml"));
+				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
 				rootPane.getChildren().setAll(newPane);
 				break;
 				
 			case "Reminders":
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("view/Reminders.fxml"));
+				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
 				rootPane.getChildren().setAll(newPane);
 				break;
 				
 			case "Weekly": 
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("view/Weekly.fxml"));
+				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Weekly.fxml"));
 				rootPane.getChildren().setAll(newPane);
 				break;
 			}
