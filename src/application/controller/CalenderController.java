@@ -4,6 +4,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -71,14 +73,16 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		MonthName.setText(month);
 		
+		int i = 0;
 		
-		
-		
+		for( Node child : calenderGrid.getChildren() ) {
+			//lmgfoa
+		}
 		
 		
 		//load data from eventlist into the calender
 		
-		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
+		for( i = 0; i < eventlist.getEvents().size(); i++ ) {
 			if(eventlist.getEvents().get(i).getDate().split("/")[0].equals(month)) {
 				System.out.println(eventlist.getEvents().get(i).getName()+"-"+eventlist.getEvents().get(i).getDate() );
 				System.out.println(eventlist.getEvents().get(i).getNote());
