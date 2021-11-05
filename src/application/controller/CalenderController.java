@@ -4,7 +4,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -15,7 +14,6 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.AnchorPane;
@@ -23,7 +21,7 @@ import javafx.scene.text.Text;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
-	@FXML Label MonthName;
+	@FXML Text MonthName;
 	@FXML GridPane calenderGrid;
 	
 //	private ObservableList<ObservableList<>> weeks;
@@ -74,16 +72,31 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		MonthName.setText(month);
 		
-		int i = 0;
-		
-		for( Node child : calenderGrid.getChildren() ) {
-			//lmgfoa
+		Node[][] gridPaneNodes = new Node[calenderGrid.getRowCount()][calenderGrid.getColumnCount()];
+		for(Node child : calenderGrid.getChildren()) {
+			
+			Integer column = calenderGrid.getColumnIndex(child);
+			Integer row = calenderGrid.getRowIndex(child);
+			
+			if(column != null && row != null)
+				gridPaneNodes[column][row] = child;
 		}
+		
+		for(int row = 0; row < calenderGrid.getRowCount(); row++) {
+			for(int column = 0; column < calenderGrid.getColumnCount(); column++) {
+				Node node = gridPaneNodes[column][row]; 
+				
+				// start accessing/modifying the node here...
+			}
+		}
+		
+		
+		
 		
 		
 		//load data from eventlist into the calender
 		
-		for( i = 0; i < eventlist.getEvents().size(); i++ ) {
+		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
 			if(eventlist.getEvents().get(i).getDate().split("/")[0].equals(month)) {
 				System.out.println(eventlist.getEvents().get(i).getName()+"-"+eventlist.getEvents().get(i).getDate() );
 				System.out.println(eventlist.getEvents().get(i).getNote());
@@ -96,6 +109,36 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 	public void handle(Event event) {
 		// TODO handle adding a new event to the calender
 		// TODO handle deleting an event from the calender
+		Button temp = (Button) event.getSource();
+		AnchorPane newPane;
+		try {
+		
+		switch(temp.getText()) {
+		
+		case "Monthly": 
+			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
+			rootPane.getChildren().setAll(newPane);
+			break;
+		
+		case "Weekly": 
+			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Weekly.fxml"));
+			rootPane.getChildren().setAll(newPane);
+			break;
+			
+		case "Daily": 
+			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
+			rootPane.getChildren().setAll(newPane);
+			break;
+			
+		case "Reminders": 
+			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
+			rootPane.getChildren().setAll(newPane);
+			break;
+			
+		}
+		
+		}
+		catch(Exception e) {e.printStackTrace();}
 		// TODO handle navigating to other pages
 		// TODO handle navigating to a different month
 		
