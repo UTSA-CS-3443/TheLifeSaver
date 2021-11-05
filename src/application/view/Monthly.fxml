@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -71,10 +73,15 @@
             <Label text="Label" GridPane.columnIndex="6" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Text fx:id="MonthName" layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MonthName" wrappingWidth="152.21630859375">
+      <ImageView fitHeight="145.0" fitWidth="741.0" layoutX="107.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../eclipse-workspace/TheLifeSaver/images/Life%20saver%20banner%20USE.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="262.0" layoutY="45.0" text="Month Name" textFill="#140303">
          <font>
-            <Font name="System Bold" size="29.0" />
+            <Font name="Tw Cen MT Condensed Extra Bold" size="55.0" />
          </font>
-      </Text>
+      </Label>
    </children>
 </AnchorPane>
