@@ -1,12 +1,15 @@
 package application.model;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.text.DateFormat;  
+ 
 
 /**
  * @author Molly Frost - iav811 
@@ -80,6 +83,39 @@ public class Occation {
 			e.printStackTrace();
 		}
 //		return events;
+	}
+	
+	public void removeEvent(String filename, Plan finished){
+		int count = 0;
+		Date date = finished.getDateOb(); 
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");  
+        String strDate = dateFormat.format(date);  
+		try {
+			File file =  new File(filename);
+			File tempFile = new File("data/temp.csv");
+			FileWriter printer = new FileWriter(tempFile);
+			Scanner scan = new Scanner( file );
+			
+			while(scan.hasNextLine()) {
+				String fileLine = scan.nextLine();
+				String[] temp = fileLine.split(",");
+				for(int j = 0; j < 5; j++) {
+					temp[j] = temp[j].trim();
+				}
+				if(!(temp[0].equals(strDate) && temp[1].equals(finished.getTime()))) {
+					printer.write(fileLine);
+				}else {
+					events.remove(count);
+				}
+				count++;
+			}
+				file = tempFile;
+				tempFile.delete();
+				scan.close();
+				printer.close();
+		}catch( IOException e ) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

@@ -10,7 +10,7 @@
    <children>
       <Pane prefHeight="800.0" prefWidth="800.0">
          <children>
-            <CheckBox layoutX="217.0" layoutY="66.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+            <CheckBox fx:id="remind1" layoutX="217.0" layoutY="66.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
                <font>
                   <Font size="24.0" />
                </font></CheckBox>

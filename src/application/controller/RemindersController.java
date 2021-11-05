@@ -1,11 +1,11 @@
 package application.controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.Main;
-
+import application.model.Occation;
+import application.model.Plan;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,7 +27,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class RemindersController implements EventHandler<ActionEvent>, Initializable {
 		
-	//private Occation events;
+	private Occation myEvents;
 	@FXML 
 	private CheckBox remind1;
 	@FXML 
@@ -79,13 +79,12 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		 */
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
-/*
-			events = new Occation();
-			events.loadData("data/events.csv");
+			myEvents = new Occation();
+			myEvents.loadEvents("data/monthlyEvents.csv");
 			notVisible();
 			int count = 0;
 			//TODO: read from file && while count <=20
-			for(Event event : events) {
+			for(Plan event : myEvents.getEvents()) {
 				while(count < 20) {
 					//TODO: check if isRemind = true if true 
 					if(event.isRemind()) {
@@ -96,7 +95,6 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 					}
 				}
 			}
-	*/
 		}
 		
 		/**
@@ -106,102 +104,18 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		 */
 		@Override
 		public void handle(ActionEvent event) {
-			//notVisible();
 			//TODO: check which checkbox was marked
 			for(int i = 0; i < 20; i++) {
 				if(boxes[i].isSelected()) {
 					//remove from file
 					//remove from arraylist
+					Plan finished = myEvents.getEvents().get(i);
+					myEvents.removeEvent("data/MonthlyEvents.csv", finished);
 					boxes[i].setDisable(true);
-				
-			
-			/*
-			if(remind1.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind1.setDisable(true);
-			}else if(remind2.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind2.setDisable(true);
-			}else if(remind3.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind3.setDisable(true);
-			}else if(remind4.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind4.setDisable(true);
-			}else if(remind5.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind5.setDisable(true);
-			}else if(remind6.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind6.setDisable(true);
-			}else if(remind7.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind7.setDisable(true);
-			}else if(remind8.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind8.setDisable(true);
-			}else if(remind9.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind9.setDisable(true);
-			}else if(remind10.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind10.setDisable(true);
-			}else if(remind11.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind11.setDisable(true);
-			}else if(remind12.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind12.setDisable(true);
-			}else if(remind13.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind13.setDisable(true);
-			}else if(remind14.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind14.setDisable(true);
-			}else if(remind15.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind15.setDisable(true);
-			}else if(remind16.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind16.setDisable(true);
-			}else if(remind17.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind17.setDisable(true);
-			}else if(remind18.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind18.setDisable(true);
-			}else if(remind19.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind19.setDisable(true);
-			}else if(remind20.isSelected()) {
-				//remove from file
-				//remove from arraylist
-				remind20.setDisable(true);
-			*/
 				}else {
 					System.out.println("something went wrong...");
 				}
 			}
-		
 		}
 		
 		/**
