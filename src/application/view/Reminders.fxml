@@ -10,10 +10,106 @@
    <children>
       <Pane prefHeight="800.0" prefWidth="800.0">
          <children>
-            <CheckBox fx:id="remind1" layoutX="217.0" layoutY="66.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+            <CheckBox fx:id="remind3" layoutX="167.0" layoutY="94.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
                <font>
                   <Font size="24.0" />
                </font></CheckBox>
+            <CheckBox fx:id="remind8" layoutX="167.0" layoutY="292.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind7" layoutX="167.0" layoutY="258.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind6" layoutX="167.0" layoutY="216.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind5" layoutX="167.0" layoutY="175.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind4" layoutX="168.0" layoutY="133.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind9" layoutX="167.0" layoutY="324.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind1" layoutX="168.0" layoutY="13.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind2" layoutX="166.0" layoutY="53.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind10" layoutX="166.0" layoutY="363.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind11" layoutX="167.0" layoutY="405.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind12" layoutX="166.0" layoutY="445.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind13" layoutX="165.0" layoutY="482.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind14" layoutX="165.0" layoutY="522.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind15" layoutX="165.0" layoutY="560.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind16" layoutX="164.0" layoutY="604.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind17" layoutX="166.0" layoutY="645.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind18" layoutX="167.0" layoutY="685.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind19" layoutX="167.0" layoutY="721.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="remind20" layoutX="167.0" layoutY="761.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="288.0" selected="true" text="This is a check box">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="main" layoutX="582.0" layoutY="162.0" mnemonicParsing="false" onAction="#goToMonthly" text="Go To Calendar" />
          </children>
       </Pane>
    </children>
