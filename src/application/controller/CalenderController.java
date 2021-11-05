@@ -5,17 +5,26 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import application.model.Occation;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
-	@FXML GridPane CalenderGrid;
+	@FXML Text MonthName;
+	@FXML GridPane calenderGrid;
+	
+//	private ObservableList<ObservableList<>> weeks;
+//	private ObservableList<> day; - 
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -59,6 +68,13 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		}
 		
 		//load month data into the calender
+		
+		MonthName.setText(month);
+		
+		
+		
+		
+		
 		
 		//load data from eventlist into the calender
 		
