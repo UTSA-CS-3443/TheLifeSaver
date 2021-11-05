@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-import java.text.DateFormat;  
  
 
 /**
@@ -85,11 +84,9 @@ public class Occation {
 //		return events;
 	}
 	
-	public void removeEvent(String filename, Plan finished){
-		int count = 0;
-		Date date = finished.getDateOb(); 
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");  
-        String strDate = dateFormat.format(date);  
+	public void removeEvent(String filename, Plan finished){ 
+        String strDate = finished.getDate();
+        int count = 0;
 		try {
 			File file =  new File(filename);
 			File tempFile = new File("data/temp.csv");
