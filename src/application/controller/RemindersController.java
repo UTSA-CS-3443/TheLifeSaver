@@ -89,7 +89,7 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 					//TODO: check if isRemind = true if true 
 					if(event.isRemind()) {
 						//TODO: if true print remind increment count (make visible)
-						boxes[count].setText(event.toString());
+						boxes[count].setText(event.remindersDisplay());
 						boxes[count].setVisible(true);
 						count++;
 					}

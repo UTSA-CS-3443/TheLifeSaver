@@ -31,9 +31,8 @@ public class Plan { //java already has an Event class built in so i went with th
 		return sdate;
 	}
 	
-	public String toString() {
-		String toReturn = "";
-		return toReturn;
+	public String remindersDisplay() {
+		return getDate() + " - " + getTime() + "\n\t" + getName();
 	}
 	
 	public Date getDateOb() {//just in case anyone wants the date object
