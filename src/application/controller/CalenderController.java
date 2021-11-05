@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
-	@FXML Text MonthName;
+	@FXML Label MonthName;
 	@FXML GridPane calenderGrid;
 	
 //	private ObservableList<ObservableList<>> weeks;
@@ -96,36 +96,6 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 	public void handle(Event event) {
 		// TODO handle adding a new event to the calender
 		// TODO handle deleting an event from the calender
-		Button temp = (Button) event.getSource();
-		AnchorPane newPane;
-		try {
-		
-		switch(temp.getText()) {
-		
-		case "Monthly": 
-			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
-			rootPane.getChildren().setAll(newPane);
-			break;
-		
-		case "Weekly": 
-			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Weekly.fxml"));
-			rootPane.getChildren().setAll(newPane);
-			break;
-			
-		case "Daily": 
-			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
-			rootPane.getChildren().setAll(newPane);
-			break;
-			
-		case "Reminders": 
-			newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
-			rootPane.getChildren().setAll(newPane);
-			break;
-			
-		}
-		
-		}
-		catch(Exception e) {e.printStackTrace();}
 		// TODO handle navigating to other pages
 		// TODO handle navigating to a different month
 		
