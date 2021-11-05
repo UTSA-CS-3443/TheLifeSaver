@@ -53,7 +53,7 @@ public class Occation {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 				Plan event = new Plan(date, temp[1], temp[2], isRemind, temp[4]);
 				
 				boolean added = false;
@@ -106,10 +106,27 @@ public class Occation {
 				}
 				count++;
 			}
-				file = tempFile;
-				tempFile.delete();
+				copyFiletoFile(file, tempFile);
+				//tempFile.delete();
 				scan.close();
 				printer.close();
+		}catch( IOException e ) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void copyFiletoFile(File dest, File source) {
+		try {
+			FileWriter printer = new FileWriter(dest);
+			Scanner scan = new Scanner( source );
+			
+			while(scan.hasNextLine()) {
+				String fileLine = scan.nextLine();
+				printer.write(fileLine);
+				
+			}
+			scan.close();
+			printer.close();
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}

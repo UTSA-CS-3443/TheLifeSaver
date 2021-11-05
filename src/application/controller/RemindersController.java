@@ -69,7 +69,7 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 	@FXML 
 	private CheckBox remind20;
 	
-	private CheckBox boxes[] = {remind1, remind2, remind3, remind4, remind5, remind6, remind7, remind8, remind9, remind10, remind11, remind12, remind13, remind14, remind15, remind16, remind17, remind18, remind19, remind20};
+	private CheckBox[] boxes;// = {remind1, remind2, remind3, remind4, remind5, remind6, remind7, remind8, remind9, remind10, remind11, remind12, remind13, remind14, remind15, remind16, remind17, remind18, remind19, remind20};
 	
 		/**
 		 *    
@@ -79,21 +79,28 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		 */
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
+			boxes = new CheckBox[]{remind1, remind2, remind3, remind4, remind5, remind6, remind7, remind8, remind9, remind10, remind11, remind12, remind13, remind14, remind15, remind16, remind17, remind18, remind19, remind20};
 			myEvents = new Occation();
 			myEvents.loadEvents("data/monthlyEvents.csv");
 			notVisible();
 			int count = 0;
+			//System.out.println(myEvents.getEvents().size());
 			//TODO: read from file && while count <=20
-			for(Plan event : myEvents.getEvents()) {
-				while(count < 20) {
+			//while(count < 20) {
+				for(Plan event : myEvents.getEvents()) {
+					System.out.println(event.remindersDisplay());
+				
+					System.out.println("entering for. count = " + count + "isRemind() = " + event.isRemind());
 					//TODO: check if isRemind = true if true 
-					if(event.isRemind()) {
+					if(count < 20 && event.isRemind()) {
+						System.out.println("entering if, isRemind was true");
+						System.out.println(boxes[count]);
 						//TODO: if true print remind increment count (make visible)
 						boxes[count].setText(event.remindersDisplay());
 						boxes[count].setVisible(true);
 						count++;
 					}
-				}
+				//}
 			}
 		}
 		
@@ -112,6 +119,7 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 					Plan finished = myEvents.getEvents().get(i);
 					myEvents.removeEvent("data/MonthlyEvents.csv", finished);
 					boxes[i].setDisable(true);
+					break;
 				}else {
 					System.out.println("something went wrong...");
 				}
@@ -188,7 +196,7 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		 *   Sets all the checkBoxes to not visible.
 		 */
 		public void notVisible() {
-			//remind1.setVisible(false);
+			remind1.setVisible(false);
 			remind2.setVisible(false);
 			remind3.setVisible(false);
 			remind4.setVisible(false);
@@ -208,14 +216,6 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			remind18.setVisible(false);
 			remind19.setVisible(false);
 			remind20.setVisible(false);
-		}
-		
-		
-		
-		
-		
-		
-		
-		
+		}	
 		
 }
