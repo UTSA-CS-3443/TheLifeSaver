@@ -79,9 +79,9 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		MonthName.setText(Month.of(Integer.parseInt(month)).name());
 		
-		int ct = 0;
+		int ct = 0, actual = 1;
 		boolean flag = false;
-		
+		fdaypos = 5;
 		for(Node node : calenderGrid.getChildren()) {
 			
 			if(ct == fdaypos)
@@ -89,8 +89,10 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			
 			// You literally need to specify the "instanceof" condition, otherwise it doesn't work whatsoever
 			
-			if(node instanceof Label && flag && ct <= currMonth.lengthOfMonth())
-				((Label) node).setText(String.valueOf(ct));
+			if(node instanceof Label && flag && actual <= currMonth.lengthOfMonth()) {
+				((Label) node).setText(String.valueOf(actual));
+				actual++;
+			}
 			
 			else if(node instanceof Label && ct > currMonth.lengthOfMonth())
 				((Label) node).setText("");
