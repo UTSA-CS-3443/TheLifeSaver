@@ -3,25 +3,29 @@ package application.controller;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import application.model.Occation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
+import javafx.scene.Node;
 import javafx.scene.text.Text;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
-	@FXML Text MonthName;
+	@FXML AnchorPane rootPane;
+	@FXML Label MonthName;
 	@FXML GridPane calenderGrid;
 	
 //	private ObservableList<ObservableList<>> weeks;
@@ -70,26 +74,16 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		//load month data into the calender
 		
-		MonthName.setText(month);
+		MonthName.setText(Month.of(Integer.parseInt(month)).name());
 		
-		Node[][] gridPaneNodes = new Node[calenderGrid.getRowCount()][calenderGrid.getColumnCount()];
-		for(Node child : calenderGrid.getChildren()) {
+		
+		int ct = 0;
+		for(Node node : calenderGrid.getChildren()) {
+			if(node instanceof Label )
+			((Label) node).setText(String.valueOf(ct));
 			
-			Integer column = calenderGrid.getColumnIndex(child);
-			Integer row = calenderGrid.getRowIndex(child);
-			
-			if(column != null && row != null)
-				gridPaneNodes[column][row] = child;
+			ct++;
 		}
-		
-		for(int row = 0; row < calenderGrid.getRowCount(); row++) {
-			for(int column = 0; column < calenderGrid.getColumnCount(); column++) {
-				Node node = gridPaneNodes[column][row]; 
-				
-				// start accessing/modifying the node here...
-			}
-		}
-		
 		
 		
 		
