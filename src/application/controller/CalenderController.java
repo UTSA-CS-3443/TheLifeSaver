@@ -40,7 +40,6 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		LocalDateTime now = LocalDateTime.now();
 		String month = now.format(dtf).split("/")[0];
 		String year = now.format(dtf).split("/")[2];
-		YearMonth currMonth = YearMonth.of(Integer.parseInt(year), Integer.parseInt(month));
 		
 		
 		Occation eventlist = new Occation();
@@ -81,7 +80,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		int ct = 0, actual = 1;
 		boolean flag = false;
-		fdaypos = 5;
+		
 		for(Node node : calenderGrid.getChildren()) {
 			
 			if(ct == fdaypos)
@@ -89,12 +88,12 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			
 			// You literally need to specify the "instanceof" condition, otherwise it doesn't work whatsoever
 			
-			if(node instanceof Label && flag && actual <= currMonth.lengthOfMonth()) {
+			if(node instanceof Label && flag && actual <= days) {
 				((Label) node).setText(String.valueOf(actual));
 				actual++;
 			}
 			
-			else if(node instanceof Label && ct > currMonth.lengthOfMonth())
+			else if(node instanceof Label && ct > days)
 				((Label) node).setText("");
 			
 			else if(node instanceof Label && !flag)
