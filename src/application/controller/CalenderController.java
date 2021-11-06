@@ -4,13 +4,14 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.List;
+//import java.util.List;
 import java.util.ResourceBundle;
 import application.model.Occation;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+//import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.Node;
-import javafx.scene.text.Text;
+//import javafx.scene.text.Text;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
@@ -38,6 +39,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
 		LocalDateTime now = LocalDateTime.now();
 		String month = now.format(dtf).split("/")[0];
+		String year = now.format(dtf).split("/")[2];
+		YearMonth currMonth = YearMonth.of(Integer.parseInt(year), Integer.parseInt(month));
 		
 		
 		Occation eventlist = new Occation();
@@ -49,19 +52,19 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		int fdaypos = -1;
 		//find the position in the week we will start the month in
 		switch( LocalDate.of( Integer.parseInt(now.format(dtf).split("/")[2]), Integer.parseInt(now.format(dtf).split("/")[0]), Integer.parseInt("01") ).getDayOfWeek().toString() ){
-			case "MONDAY":		fdaypos = 0;
+			case "MONDAY":		fdaypos = 1;
 			break;
-			case "TUESDAY": 	fdaypos = 1;
+			case "TUESDAY": 	fdaypos = 2;
 			break;
-			case "WEDNESDAY":	fdaypos = 2;
+			case "WEDNESDAY":	fdaypos = 3;
 			break;
-			case "THURSDAY":	fdaypos = 3;
+			case "THURSDAY":	fdaypos = 4;
 			break;
-			case "FRIDAY":		fdaypos = 4;
+			case "FRIDAY":		fdaypos = 5;
 			break;
-			case "SATURRDAY":	fdaypos = 5;
+			case "SATURRDAY":	fdaypos = 6;
 			break;
-			case "SUNDAY":		fdaypos = 6;
+			case "SUNDAY":		fdaypos = 0;
 			default: System.out.println("fdaypos reader is broken");
 		}
 		
@@ -76,13 +79,27 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		MonthName.setText(Month.of(Integer.parseInt(month)).name());
 		
-		
 		int ct = 0;
+		boolean flag = false;
+		
 		for(Node node : calenderGrid.getChildren()) {
-			if(node instanceof Label )
-			((Label) node).setText(String.valueOf(ct));
+			
+			if(ct == fdaypos)
+				flag = true;
+			
+			// You literally need to specify the "instanceof" condition, otherwise it doesn't work whatsoever
+			
+			if(node instanceof Label && flag && ct <= currMonth.lengthOfMonth())
+				((Label) node).setText(String.valueOf(ct));
+			
+			else if(node instanceof Label && ct > currMonth.lengthOfMonth())
+				((Label) node).setText("");
+			
+			else if(node instanceof Label && !flag)
+				((Label) node).setText("");
 			
 			ct++;
+			
 		}
 		
 		

@@ -31,13 +31,13 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="4" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="5" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="6" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1" />
@@ -53,23 +53,23 @@
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="3" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="4" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="6" GridPane.rowIndex="4" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="85.0" text="Label" GridPane.columnIndex="6" GridPane.rowIndex="5" />
          </children>
       </GridPane>
@@ -81,6 +81,11 @@
       <Label fx:id="MonthName" alignment="CENTER" layoutX="268.0" layoutY="51.0" prefHeight="54.0" prefWidth="265.0" text="Month Name" textFill="#140303">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
+         </font>
+      </Label>
+      <Label layoutX="95.0" layoutY="159.0" prefHeight="17.0" prefWidth="602.0" text="          Sun                     Mon                  Tues                    Wed                   Thurs                  Fri                      Sat">
+         <font>
+            <Font name="Bell MT Bold" size="12.0" />
          </font>
       </Label>
    </children>
