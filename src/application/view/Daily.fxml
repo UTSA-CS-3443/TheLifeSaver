@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Button id="MainScreenButtons" fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="Back" />
+      <Label layoutX="12.0" layoutY="68.0" prefHeight="69.0" prefWidth="124.0" text="We dont have a controller for this view so this button doesnt work yet lol" wrapText="true" />
+   </children>
+</AnchorPane>

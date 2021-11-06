@@ -35,18 +35,23 @@ public class Occation {
 			Scanner scan = new Scanner( file );
 			
 			while(scan.hasNextLine()) {
+				
 				String fileLine = scan.nextLine();
 				String[] temp = fileLine.split(",");
+				
 				for(int j = 0; j < 5; j++) {
 					temp[j] = temp[j].trim();
 				}
+				
 				boolean isRemind = false;
 				if(temp[3].equals("T")) {
 					isRemind = true;
 				}
+				
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				
 				Date date = null;
+				
 				try {
 					date = format.parse(temp[0]);
 				} catch (ParseException e) {
