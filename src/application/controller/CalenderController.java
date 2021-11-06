@@ -83,7 +83,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		int ct = 0, actual = 1;
 		boolean flag = false;
 		String filler;
-
+		fdaypos = 3;
 		for (Node node: calenderGrid.getChildren()) {
 			  
 			 // The actual text that'll be put in the cell(s)
@@ -103,7 +103,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			  // Adds the event name to the correct date as long as the month and the day match the one on file
 			  for (Plan event: eventlist.getEvents()) 
 			    if (event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(actual)) || event.getDate().split("/")[1].equals(String.valueOf(actual))))
-			      filler += String.format("- %s\n", event.getName());
+			      filler += String.format("- %s\n+%s\n", event.getName(), event.convertToStandard());
 
 			  
 			  // Actually set the text of the label(s)
@@ -124,12 +124,13 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		//--------------------------------------------------------------
 		
 		
-		//load data from eventlist into the calender
+		//Print event data to console for testing purposes
 		
 		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
 			if(eventlist.getEvents().get(i).getDate().split("/")[0].equals(month)) {
-				System.out.println(eventlist.getEvents().get(i).getName()+" - "+eventlist.getEvents().get(i).getDate() );
-				System.out.println(eventlist.getEvents().get(i).getNote() + "\n");
+				System.out.print(eventlist.getEvents().get(i).getName()+" - "+eventlist.getEvents().get(i).getDate() );
+				System.out.print(" - "+eventlist.getEvents().get(i).convertToStandard());
+				System.out.println("\n" + eventlist.getEvents().get(i).getNote() + "\n");
 			}
 		}
 		

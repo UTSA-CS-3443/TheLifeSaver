@@ -75,6 +75,8 @@ public class Plan { //java already has an Event class built in so i went with th
 		this.note = note;
 	}
 	
+	/* This may or may not be needed, gonna keep it for a little longer
+	 * 
 	public String convertToMilitary(String time) throws ParseException { // Make sure time is in format: "10:30 PM"
 		
 		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
@@ -82,6 +84,23 @@ public class Plan { //java already has an Event class built in so i went with th
 		Date date = parseFormat.parse(time);
 		
 		return displayFormat.format(date);
+	}
+	*/
+	
+	public String convertToStandard() {
+		
+		try {
+		Date date = new SimpleDateFormat("hhmm").parse(String.format("%04d", Integer.parseInt(this.getTime())));
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+		
+		return sdf.format(date);
+		}
+		catch(ParseException e) {e.printStackTrace();}
+		
+		return null;
+		
+		
 	}
 	
 }
