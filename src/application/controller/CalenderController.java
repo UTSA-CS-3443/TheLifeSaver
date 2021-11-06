@@ -80,10 +80,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		
 		int ct = 0, actual = 1;
 		boolean flag = false;
-<<<<<<< HEAD
-		
-=======
->>>>>>> 8dc2a42ef0f5137123708bbbdb3593de6788c112
+
 		for(Node node : calenderGrid.getChildren()) {
 			
 			if(ct == fdaypos)
