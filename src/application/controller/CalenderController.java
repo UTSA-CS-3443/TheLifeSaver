@@ -83,7 +83,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		int ct = 0, actual = 1;
 		boolean flag = false;
 		String filler;
-		fdaypos = 3;
+		
 		for (Node node: calenderGrid.getChildren()) {
 			  
 			 // The actual text that'll be put in the cell(s)
