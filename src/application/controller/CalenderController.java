@@ -205,8 +205,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				Date date = format.parse(newDate);
 				
-				//Plan event_to_add = new Plan(date, addEventTime.getText(), addEventName.getText(), false, addEventNotes.getText());
-				
+				// Didn't know if we had a formal method for writing to the data file, but this does the trick
 				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
 				PrintWriter printWriter = new PrintWriter(fileWriter);
 				printWriter.println(String.format("%s,%s,%s,F,%s", newDate, addEventTime.getText(), addEventName.getText(), addEventNotes.getText()));
