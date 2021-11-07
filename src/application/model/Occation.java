@@ -58,7 +58,6 @@ public class Occation {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				Plan event = new Plan(date, temp[1], temp[2], isRemind, temp[4]);
 				
 				boolean added = false;

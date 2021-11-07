@@ -32,7 +32,7 @@ public class Plan { //java already has an Event class built in so i went with th
 	}
 	
 	public String remindersDisplay() {
-		return getDate() + " - " + getTime() + "\n\t" + getName() + "\n";
+		return getDate() + " - " + convertToStandard() + "\t" + getName() + "\n";
 	}
 	
 	public Date getDateOb() {//just in case anyone wants the date object
@@ -90,7 +90,7 @@ public class Plan { //java already has an Event class built in so i went with th
 	public String convertToStandard() {
 		
 		try {
-		Date date = new SimpleDateFormat("hhmm").parse(String.format("%04d", Integer.parseInt(this.getTime())));
+		Date date = new SimpleDateFormat("hhmm").parse(String.format("%04d", Integer.parseInt(getTime())));
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
 		

@@ -30,6 +30,7 @@ import javafx.scene.Node;
 import java.io.FileWriter;
 //import javafx.scene.text.Text;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
@@ -87,11 +88,11 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			weeks++;
 		}
 		
-		//load month data into the calender--------------------------------
+		//load month data into the calendar--------------------------------
 		
 		MonthName.setText(Month.of(Integer.parseInt(month)).name());
 		
-		int ct = 0, actual = 1;
+		int ct = 0, currDay = 1;
 		boolean flag = false;
 		String filler;
 
@@ -108,20 +109,20 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			  
 			  // Sorry for the clusterfuck code, this took 4 hours to figure out and I'm slump
 
-			  filler += String.format("%s\n", String.valueOf(actual)); 
+			  filler += String.format("%s\n", String.valueOf(currDay)); 
 
 			  
 			  // Adds the event name to the correct date as long as the month and the day match the one on file
 			  for (Plan event: eventlist.getEvents()) 
-			    if (event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(actual)) || event.getDate().split("/")[1].equals(String.valueOf(actual))))
-			      filler += String.format("- %s\n+%s\n", event.getName(), event.convertToStandard());
+			    if (event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(currDay)) || event.getDate().split("/")[1].equals(String.valueOf(currDay))))
+			      filler += String.format("-%s\n+%s\n", event.getName(), event.convertToStandard());
 
 			  
 			  // Actually set the text of the label(s)
 			  // You literally need to specify the "instanceof" condition, otherwise ERROR ERROR ERROR
-			  if (node instanceof Label && flag && actual <= days) {
+			  if (node instanceof Label && flag && currDay <= days) {
 			    ((Label) node).setText(filler);
-			    actual++;
+			    currDay++;
 			  } else if (node instanceof Label && ct > days)
 			    ((Label) node).setText("");
 
@@ -160,15 +161,10 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 		Button temp = (Button) event.getSource();
 		AnchorPane newPane;
 		try {
-		
 			if(temp.equals(backButton)) {
 				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Main.fxml"));
 				rootPane.getChildren().setAll(newPane);
-			}
-			else if(temp.equals(addButton)) {
-				
-			}
-				
+			}	
 		}
 		catch(Exception e) {e.printStackTrace();}
 		// TODO handle navigating to a different month
@@ -178,12 +174,10 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 	public void addEventGuiHandler(Event event) {
 		
 		Button temp = (Button) event.getSource();
-		boolean isVisible = false;
 		
 		if(temp.equals(addButton)) {
 			addEventRoot.setVisible(true);
 			addEventError.setVisible(false);
-			isVisible = true;
 		}
 		else if(temp.equals(addEventX)) {
 			addEventName.clear();
@@ -201,6 +195,9 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 				addEventError.setVisible(true);
 			}
 			else {
+				
+				addEventRoot.setVisible(false);
+				
 				// CREATE THE EVENT WITH THE INFO HERE
 				try {
 				String vals[] = addEventDate.getValue().toString().split("-");
@@ -208,12 +205,17 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				Date date = format.parse(newDate);
 				
-				Plan event_to_add = new Plan(date, addEventTime.getText(), addEventName.getText(), false, addEventNotes.getText());
-			
-				// event_to_add is our new plan, we need to add it to the file and update the scene
+				//Plan event_to_add = new Plan(date, addEventTime.getText(), addEventName.getText(), false, addEventNotes.getText());
 				
+				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
+				PrintWriter printWriter = new PrintWriter(fileWriter);
+				printWriter.println(String.format("\n%s,%s,%s,F,%s", newDate, addEventTime.getText(), addEventName.getText(), addEventNotes.getText()));
+				printWriter.close();
+	
+				AnchorPane newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
+				rootPane.getChildren().setAll(newPane);
 				
-				}catch(ParseException e) {e.printStackTrace();}
+				}catch(Exception e) {e.printStackTrace();}
 			}
 			
 		}
