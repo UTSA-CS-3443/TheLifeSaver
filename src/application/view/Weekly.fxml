@@ -35,6 +35,7 @@
             <Button fx:id="thursButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="4" />
             <Button fx:id="friButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="5" />
             <Button fx:id="satButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="6" />
+            <Label fx:id="testLabel" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button id="MainScreenButtons" fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="Back" />
