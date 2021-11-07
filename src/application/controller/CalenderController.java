@@ -209,7 +209,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 				
 				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
 				PrintWriter printWriter = new PrintWriter(fileWriter);
-				printWriter.println(String.format("\n%s,%s,%s,F,%s", newDate, addEventTime.getText(), addEventName.getText(), addEventNotes.getText()));
+				printWriter.println(String.format("%s,%s,%s,F,%s", newDate, addEventTime.getText(), addEventName.getText(), addEventNotes.getText()));
 				printWriter.close();
 	
 				AnchorPane newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
