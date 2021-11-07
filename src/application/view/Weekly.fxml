@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WeeklyController">
    <children>
-      <GridPane fx:id="weeklyGrid" layoutX="25.0" layoutY="179.0" prefHeight="600.0" prefWidth="750.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="179.0">
+      <GridPane fx:id="weeklyGrid" alignment="CENTER" layoutX="25.0" layoutY="160.0" prefHeight="600.0" prefWidth="750.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="160.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -20,10 +20,15 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="292.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="500.0" minHeight="0.0" prefHeight="500.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <Label fx:id="monLabel" text="Label" />
+            <Label fx:id="SunLabel" text="Label" GridPane.columnIndex="6" />
+         </children>
       </GridPane>
       <Button id="MainScreenButtons" fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="Back" />
       <ImageView fitHeight="145.0" fitWidth="741.0" layoutX="116.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
