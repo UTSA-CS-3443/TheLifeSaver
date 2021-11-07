@@ -1,6 +1,8 @@
 package application.controller;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -18,13 +20,16 @@ import javafx.scene.control.DatePicker;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import java.util.Date;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.Node;
+import java.io.FileWriter;
 //import javafx.scene.text.Text;
+import java.io.IOException;
 
 public class CalenderController implements javafx.event.EventHandler<Event>, Initializable{
 	
@@ -197,7 +202,18 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 			}
 			else {
 				// CREATE THE EVENT WITH THE INFO HERE
+				try {
+				String vals[] = addEventDate.getValue().toString().split("-");
+				String newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
+				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				Date date = format.parse(newDate);
 				
+				Plan event_to_add = new Plan(date, addEventTime.getText(), addEventName.getText(), false, addEventNotes.getText());
+			
+				// event_to_add is our new plan, we need to add it to the file and update the scene
+				
+				
+				}catch(ParseException e) {e.printStackTrace();}
 			}
 			
 		}
