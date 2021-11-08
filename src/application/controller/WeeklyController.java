@@ -25,6 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class WeeklyController implements EventHandler<ActionEvent>, Initializable {
@@ -33,6 +34,8 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 	@FXML Button backButton;
 	@FXML GridPane weeklyGrid;
 	@FXML Label MonthName;
+	@FXML Button incrementWeekh;
+    @FXML Button decrementWeek;
 	
     @FXML private Button monButton;
     @FXML private Button friButton;
@@ -49,8 +52,7 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
     @FXML private Label wedLabel;
     @FXML private Label satLabel;
     @FXML private Label tuesLabel;
-
-   
+    
  
 	@Override
     public void initialize(URL location, ResourceBundle resources){
@@ -165,13 +167,10 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		   
 		   
 	   }
-	    
-		
 	
-		
 
 	}
-	//not done
+	//mostly done
 	public void checkEvent(String day, Occation eventlist) {	
 		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
 				if(eventlist.getEvents().get(i).getDate().split("/")[1].equals(day)) {
