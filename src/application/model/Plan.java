@@ -30,6 +30,12 @@ public class Plan { //java already has an Event class built in so i went with th
 		//its probably going to be easier if this returns a string so we dont have to call this code every time
 		return sdate;
 	}
+	public String getDay() {
+		SimpleDateFormat format = new SimpleDateFormat("EEEE"); 
+		String sday = format.format(date);
+		//its probably going to be easier if this returns a string so we dont have to call this code every time
+		return sday;
+	}
 	
 	public String remindersDisplay() {
 		return getDate() + " - " + convertToStandard() + "\t" + getName() + "\n";
@@ -74,6 +80,18 @@ public class Plan { //java already has an Event class built in so i went with th
 	public void setNote(String note) {
 		this.note = note;
 	}
+	
+	/* This may or may not be needed, gonna keep it for a little longer
+	 * 
+	public String convertToMilitary(String time) throws ParseException { // Make sure time is in format: "10:30 PM"
+		
+		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
+		Date date = parseFormat.parse(time);
+		
+		return displayFormat.format(date);
+	}
+	*/
 	
 	public String convertToStandard() {
 		
