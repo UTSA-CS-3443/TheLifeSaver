@@ -1,37 +1,22 @@
 package application.controller;
 
-import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Month;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-//import java.util.List;
-import java.util.ResourceBundle;
-
 import application.model.*;
-import javafx.collections.FXCollections;
 import javafx.scene.control.TextField;
 import javafx.scene.control.DatePicker;
-//import javafx.collections.ObservableList;
 import javafx.event.Event;
+import javafx.scene.control.CheckBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import java.util.Date;
 import java.util.GregorianCalendar;
-
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.Node;
 import java.io.FileWriter;
-//import javafx.scene.text.Text;
-import java.io.IOException;
 import java.io.PrintWriter;
 
 public class CalenderController implements javafx.event.EventHandler<Event>{
@@ -41,6 +26,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	@FXML TextField addEventName, addEventTime, addEventNotes;
 	@FXML DatePicker addEventDate;
 	@FXML Label MonthName, addEventError;
+	@FXML CheckBox reminderCheckbox;
 	@FXML GridPane calenderGrid;
 	static String globalMonth;
 	
@@ -100,7 +86,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			month = "0" + month;
 		
 		for (Node node: calenderGrid.getChildren()) {
-			  
+			  System.out.println(node);
 			 // The actual text that'll be put in the cell(s)
 			  filler = "";
 			  
@@ -132,7 +118,6 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 				  ((Label) node).setText(""); 
 				  ((Label) node).setStyle("-fx-background-color:#d4d4d4;");
 			  }
-			    
 
 			  ct++;
 
@@ -198,13 +183,14 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	
 	public void addEventGuiHandler(Event event) {
 		
-		Button temp = (Button) event.getSource();
 		
-		if(temp.equals(addButton)) {
+		
+		
+		if(event.getSource().equals(addButton)) {
 			addEventRoot.setVisible(true);
 			addEventError.setVisible(false);
 		}
-		else if(temp.equals(addEventX)) {
+		else if(event.getSource().equals(addEventX)) {
 			addEventName.clear();
 			addEventDate.setValue(null);
 			addEventTime.clear();
@@ -212,7 +198,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			addEventRoot.setVisible(false);
 			
 		}
-		else if(temp.equals(addEventAdd)) {
+		else if(event.getSource().equals(addEventAdd)) {
 			if(addEventName.getText().trim().isEmpty() || addEventDate.getValue() == null || addEventTime.getText().trim().isEmpty()) {
 				addEventName.clear();
 				addEventDate.setValue(null);
@@ -227,17 +213,18 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 				try {
 				String vals[] = addEventDate.getValue().toString().split("-");
 				String newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
-				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				String isReminder = reminderCheckbox.isSelected() ? "T":"F";
+				//SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				
 				// Didn't know if we had a formal method for writing to the data file, but this does the trick
 				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
 				PrintWriter printWriter = new PrintWriter(fileWriter);
 				
 				if(addEventNotes.getText().isEmpty())
-					printWriter.println(String.format("%s,%s,%s,F,%s", newDate, addEventTime.getText(), addEventName.getText(), "-"));
+					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, "-"));
 	
 				else
-					printWriter.println(String.format("%s,%s,%s,F,%s", newDate, addEventTime.getText(), addEventName.getText(), addEventNotes.getText()));
+					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, addEventNotes.getText()));
 				
 				printWriter.close();
 				
