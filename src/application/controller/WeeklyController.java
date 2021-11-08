@@ -149,8 +149,10 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		eventlist.loadEvents("data/monthlyEvents.csv");
 		System.out.println(day);
 		
+		
 	   for (String s: days) {
 		   checkEvent(s,eventlist);
+		   
 		   
 	   }
 	    
@@ -166,15 +168,23 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 					String ret= eventlist.getEvents().get(i).getName();
 					String one = eventlist.getEvents().get(i).getDate();
 					String here= ret + " - " + one;
-					testLabel.setText(here);
+					
+					String bla = " - "+eventlist.getEvents().get(i).convertToStandard();
+					String cat = "\n" + eventlist.getEvents().get(i).getNote() + "\n";
+					
+					String total = here +bla +cat;
+					
+					testLabel.setText(total);
+					System.out.println(total);
 					//return here;
 					//System.out.print(eventlist.getEvents().get(i).getName()+" - "+eventlist.getEvents().get(i).getDate() );
 					//System.out.print(" - "+eventlist.getEvents().get(i).convertToStandard());
 					//System.out.println("\n" + eventlist.getEvents().get(i).getNote() + "\n");
 				}
 			}
+
 		
-		
+	
 	
 	}		
 	@Override
