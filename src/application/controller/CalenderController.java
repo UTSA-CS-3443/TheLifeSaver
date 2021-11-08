@@ -70,7 +70,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		
 		//find the position in the week we will start the month in
 		
-		switch( LocalDate.of( Integer.parseInt(year), Integer.parseInt(month) + 1, Integer.parseInt("01") ).getDayOfWeek().toString() ){
+		switch( LocalDate.of( Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt("01") ).getDayOfWeek().toString() ){
 			case "MONDAY":		fdaypos = 1;
 			break;
 			case "TUESDAY": 	fdaypos = 2;
