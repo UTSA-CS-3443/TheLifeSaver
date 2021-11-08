@@ -33,7 +33,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>, Ini
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		//load in the data of the current month
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yy");  
 		LocalDateTime now = LocalDateTime.now();
 		String month = now.format(dtf).split("/")[0];
 		
