@@ -25,6 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class WeeklyController implements EventHandler<ActionEvent>, Initializable {
@@ -33,6 +34,9 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 	@FXML Button backButton;
 	@FXML GridPane weeklyGrid;
 	@FXML Label MonthName;
+	@FXML Button incrementWeekh;
+    @FXML Button decrementWeek;
+	
     @FXML private Button monButton;
     @FXML private Button friButton;
     @FXML private Button satButton;
@@ -40,8 +44,15 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
     @FXML private Button wedButton;
     @FXML private Button sunButton;
     @FXML private Button tuesButton;
-    @FXML
-    private Label testLabel;
+    
+    @FXML private Label thursLabel;
+    @FXML private Label monLabel;
+    @FXML private Label friLabel;
+    @FXML private Label sunLabel;
+    @FXML private Label wedLabel;
+    @FXML private Label satLabel;
+    @FXML private Label tuesLabel;
+    
  
 	@Override
     public void initialize(URL location, ResourceBundle resources){
@@ -148,6 +159,7 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		Occation eventlist = new Occation();
 		eventlist.loadEvents("data/monthlyEvents.csv");
 		System.out.println(day);
+		//System.out.println(sun.getDayOfWeek());
 		
 		
 	   for (String s: days) {
@@ -155,16 +167,14 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		   
 		   
 	   }
-	    
-		
 	
-		
 
 	}
-	//not done
+	//mostly done
 	public void checkEvent(String day, Occation eventlist) {	
 		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
 				if(eventlist.getEvents().get(i).getDate().split("/")[1].equals(day)) {
+					
 					String ret= eventlist.getEvents().get(i).getName();
 					String one = eventlist.getEvents().get(i).getDate();
 					String here= ret + " - " + one;
@@ -174,19 +184,48 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 					
 					String total = here +bla +cat;
 					
-					testLabel.setText(total);
+					String eventDay = eventlist.getEvents().get(i).getDay();
+					if (eventDay.equals("Wednesday")) {
+						System.out.println("wed");
+						wedLabel.setText(total);
+					}
+					else if (eventDay.equals("Tuesday")) {
+						System.out.println("tues");
+						tuesLabel.setText(total);
+					}
+					else if (eventDay.equals("Monday")) {
+						System.out.println("mon");
+						monLabel.setText(total);
+					}
+					else if (eventDay.equals("Thursday")) {
+						System.out.println("thur");
+						thursLabel.setText(total);
+					}
+					else if (eventDay.equals("Friday")) {
+						System.out.println("fri");
+						friLabel.setText(total);
+					}
+					else if (eventDay.equals("Saturday")) {
+						System.out.println("sat");
+						satLabel.setText(total);
+					}
+					else {
+						System.out.println("sun");
+						sunLabel.setText(total);
+					}
+
+			
 					System.out.println(total);
-					//return here;
-					//System.out.print(eventlist.getEvents().get(i).getName()+" - "+eventlist.getEvents().get(i).getDate() );
-					//System.out.print(" - "+eventlist.getEvents().get(i).convertToStandard());
-					//System.out.println("\n" + eventlist.getEvents().get(i).getNote() + "\n");
+				
+					
+					}
+					
+					
+					
 				}
 			}
-
+	
 		
-	
-	
-	}		
 	@Override
 	public void handle(ActionEvent event) {
 		Button temp = (Button) event.getSource();
