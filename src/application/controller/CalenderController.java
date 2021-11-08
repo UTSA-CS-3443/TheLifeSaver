@@ -2,6 +2,7 @@ package application.controller;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import application.model.*;
 import javafx.scene.control.TextField;
@@ -13,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import java.util.GregorianCalendar;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.util.StringConverter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.Node;
@@ -136,6 +138,32 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			}
 		}
 		
+		addEventDate.setConverter(new StringConverter<LocalDate>() {
+			
+			String pattern = "MM/dd/yyyy";
+			
+		    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
+		    
+		    {
+		    	addEventDate.setPromptText(pattern.toLowerCase() );
+		    }
+		    
+		    @Override public String toString(LocalDate Date) {
+		    	if( Date != null ) {
+		    		return dateFormatter.format(Date);
+		    	}else { return ""; }
+		    		
+		    }
+		    
+		    @Override public LocalDate fromString(String string) {
+		    	if(string != null && !string.isEmpty()) {
+		    		return LocalDate.parse(string,dateFormatter);
+		    	}else {
+		    		return null;
+		    	}
+		    }
+		});
+		
 	}
 
 	@Override
@@ -199,7 +227,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			
 		}
 		else if(event.getSource().equals(addEventAdd)) {
-			if(addEventName.getText().trim().isEmpty() || addEventDate.getValue() == null || addEventTime.getText().trim().isEmpty()) {
+			
+			if(addEventName.getText().trim().isEmpty() || ( addEventDate.getValue() == null && !isValidDate( addEventDate.getEditor().getText() ) ) || addEventTime.getText().trim().isEmpty()) {
 				addEventName.clear();
 				addEventDate.setValue(null);
 				addEventTime.clear();
@@ -207,12 +236,24 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			}
 			else {
 				
+				System.out.println(addEventDate.getEditor().getText());
+				
 				addEventRoot.setVisible(false);
+				
+				String vals[];
+				String newDate;
 				
 				// CREATE THE EVENT WITH THE INFO HERE
 				try {
-				String vals[] = addEventDate.getValue().toString().split("-");
-				String newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
+				if(addEventDate.getValue() == null ){
+					vals = addEventDate.getEditor().getText().split("/");
+					newDate = String.format("%s/%s/%s", vals[0], vals[1], vals[2] );
+				}
+				else {
+					vals = addEventDate.getValue().toString().split("-");
+					newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
+				}
+				System.out.println(newDate);
 				String isReminder = reminderCheckbox.isSelected() ? "T":"F";
 				//SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				
@@ -239,6 +280,21 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			}
 			
 		}
-		
+	}
+	
+	public boolean isValidDate(String date) {
+		String split[] = date.split("/");
+		if( split.length < 3 ) {
+			return false;
+		}
+		if( Integer.parseInt(split[0]) > 12 ) {
+			return false;
+		}
+		Calendar d = new GregorianCalendar(Integer.parseInt(split[0]), Integer.parseInt(split[0]) - 1, 1);
+		int maxPosDays = d.getActualMaximum(Calendar.DAY_OF_MONTH);
+		if(Integer.parseInt(split[1]) > maxPosDays ) {
+			return false;
+		}
+		return true;
 	}
 }
