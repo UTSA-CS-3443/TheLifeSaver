@@ -23,27 +23,57 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="292.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="500.0" minHeight="0.0" prefHeight="500.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="292.0" minHeight="10.0" prefHeight="66.86181640625" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="559.2225036621094" minHeight="0.0" prefHeight="555.13818359375" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Button fx:id="sunButton" mnemonicParsing="false" onAction="#handle" prefHeight="72.0" prefWidth="112.0" text="Button" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="556.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.rowIndex="1" />
             <Button fx:id="monButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="1" />
             <Button fx:id="tuesButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="2" />
             <Button fx:id="wedButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="3" />
             <Button fx:id="thursButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="4" />
             <Button fx:id="friButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="5" />
             <Button fx:id="satButton" mnemonicParsing="false" onAction="#handle" text="Button" GridPane.columnIndex="6" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" layoutX="11.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" layoutX="118.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" layoutX="225.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" layoutX="332.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" layoutX="439.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="496.0" layoutX="546.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <Label fx:id="testLabel" prefHeight="71.0" prefWidth="131.0" text="Label" GridPane.rowIndex="1">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="555.0" layoutX="11.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="550.0" layoutX="118.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="554.0" layoutX="225.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="547.0" layoutX="332.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="546.0" layoutX="439.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="552.0" layoutX="546.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Label fx:id="sunLabel" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="monLabel" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="tuesLabel" layoutX="11.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="wedLabel" layoutX="225.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="thursLabel" layoutX="332.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="friLabel" layoutX="439.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="satLabel" layoutX="546.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <font>
                   <Font size="13.0" />
                </font>
@@ -51,12 +81,12 @@
          </children>
       </GridPane>
       <Button id="MainScreenButtons" fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="Back" />
-      <ImageView fitHeight="145.0" fitWidth="741.0" layoutX="116.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="145.0" fitWidth="741.0" layoutX="118.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/Life%20saver%20banner%20USE.png" />
          </image>
       </ImageView>
-      <Label fx:id="MonthName" alignment="CENTER" layoutX="278.0" layoutY="61.0" prefHeight="54.0" prefWidth="265.0" text="Month Name" textFill="#140303">
+      <Label fx:id="MonthName" alignment="CENTER" layoutX="289.0" layoutY="68.0" prefHeight="54.0" prefWidth="265.0" text="Month Name" textFill="#140303">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
