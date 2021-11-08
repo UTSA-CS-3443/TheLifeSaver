@@ -122,11 +122,17 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			  if (node instanceof Label && flag && currDay <= days) {
 			    ((Label) node).setText(filler);
 			    currDay++;
-			  } else if (node instanceof Label && ct >= days)
-			    ((Label) node).setText("");
+			  } else if (node instanceof Label && ct >= days) {
+				  ((Label) node).setText("");
+				  ((Label) node).setStyle("-fx-background-color:#d4d4d4;");
+			  }
+			    
 
-			  else if (node instanceof Label && !flag)
-			    ((Label) node).setText("");
+			  else if (node instanceof Label && !flag) {
+				  ((Label) node).setText(""); 
+				  ((Label) node).setStyle("-fx-background-color:#d4d4d4;");
+			  }
+			    
 
 			  ct++;
 
