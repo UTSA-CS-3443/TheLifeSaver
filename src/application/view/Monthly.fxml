@@ -434,5 +434,7 @@
             </Label>
          </children>
       </AnchorPane>
+      <Button id="windows" fx:id="decrementMonth" layoutX="253.0" layoutY="65.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="&lt;" />
+      <Button id="windows" fx:id="incrementMonth" layoutX="521.0" layoutY="66.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="&gt;" />
    </children>
 </AnchorPane>
