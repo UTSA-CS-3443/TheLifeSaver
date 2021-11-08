@@ -86,7 +86,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			month = "0" + month;
 		
 		for (Node node: calenderGrid.getChildren()) {
-			  System.out.println(node);
+	
 			 // The actual text that'll be put in the cell(s)
 			  filler = "";
 			  
