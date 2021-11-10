@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Plan { //java already has an Event class built in so i went with this instead
+public class Plan { 
 	
 	private Date date;
 	private String time;
@@ -31,7 +31,7 @@ public class Plan { //java already has an Event class built in so i went with th
 		try {
 			this.date = (Date)formatter.parse(date);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
 		}
 		this.time = time;
@@ -44,22 +44,22 @@ public class Plan { //java already has an Event class built in so i went with th
 	public String getDate() {
 		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy"); 
 		String sdate = format.format(date);
-		//its probably going to be easier if this returns a string so we dont have to call this code every time
+		
 		return sdate;
 	}
 	public String getDay() {
 		SimpleDateFormat format = new SimpleDateFormat("EEEE"); 
 		String sday = format.format(date);
-		//its probably going to be easier if this returns a string so we dont have to call this code every time
+		
 		return sday;
 	}
 	
 	public String remindersDisplay() {
-		return getDate() + " - " + getTime() + ": " + getName() + "\n";
+		return getDate() + " - " + convertToStandard() + ": " + getName() + "\n";
 
 	}
 	
-	public Date getDateOb() {//just in case anyone wants the date object
+	public Date getDateOb() {
 		return date;
 	}
 	
@@ -98,18 +98,6 @@ public class Plan { //java already has an Event class built in so i went with th
 	public void setNote(String note) {
 		this.note = note;
 	}
-	
-	/* This may or may not be needed, gonna keep it for a little longer
-	 * 
-	public String convertToMilitary(String time) throws ParseException { // Make sure time is in format: "10:30 PM"
-		
-		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm");
-		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
-		Date date = parseFormat.parse(time);
-		
-		return displayFormat.format(date);
-	}
-	*/
 	
 	public String convertToStandard() {
 		
