@@ -30,6 +30,12 @@ public class Plan { //java already has an Event class built in so i went with th
 		//its probably going to be easier if this returns a string so we dont have to call this code every time
 		return sdate;
 	}
+	public String getDay() {
+		SimpleDateFormat format = new SimpleDateFormat("EEEE"); 
+		String sday = format.format(date);
+		//its probably going to be easier if this returns a string so we dont have to call this code every time
+		return sday;
+	}
 	
 	public String remindersDisplay() {
 		return getDate() + " - " + getTime() + ": " + getName() + "\n";

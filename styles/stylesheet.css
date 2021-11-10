@@ -33,7 +33,17 @@
 
 /*---------------- */
 
-#NavigationButtons:hover
-{
-	-fx-background-color: #6695e2
+#windows{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-border-color:#000000; 
+    -fx-background-color:#168FC1;
+}
+
+#windows:hover{     
+  -fx-background-color:#0B729C; 
+  -fx-text-fill:white;
+  -fx-font-weight:bold; 
+  -fx-border-color:#168FC1; 
 }

@@ -1,6 +1,10 @@
 package application.controller;
 
 import javafx.event.EventHandler;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
@@ -28,6 +32,7 @@ public class MainController implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		
 		Button tmp = (Button) event.getSource();
+		FXMLLoader loader;
 		AnchorPane newPane;
 		
 		try {
@@ -36,22 +41,35 @@ public class MainController implements EventHandler<ActionEvent> {
 			// **We can edit the case names if needed**
 			
 			case "Daily": 
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
+				loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
+				newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);
 				break;
 				
 			case "Monthly": 
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
+				loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
+				newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);
+				
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
+				LocalDateTime now = LocalDateTime.now();
+				String month = now.format(dtf).split("/")[0], year = now.format(dtf).split("/")[2];
+				
+				// So we can dynamically set the month in the calendar controller instead of being stuck with "now"
+				CalenderController controller = loader.getController();
+				controller.initialize(month, year);
+				
 				break;
 				
 			case "Reminders":
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
+				loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
+				newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);
 				break;
 				
 			case "Weekly": 
-				newPane = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/Weekly.fxml"));
+				loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Weekly.fxml"));
+				newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);
 				break;
 			}
