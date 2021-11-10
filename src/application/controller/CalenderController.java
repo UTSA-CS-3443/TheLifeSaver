@@ -31,10 +31,13 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	@FXML CheckBox reminderCheckbox;
 	@FXML GridPane calenderGrid;
 	static String globalMonth;
+	Occation eventlist;
+	String year;
 	
 	public void initialize(String month, String year) {
 		// TODO Auto-generated method stub
 		//load in the data of the current month
+		this.year = year;
 
 		if(month.charAt(0) == '0')
 			month = String.valueOf(month.charAt(1));
@@ -49,11 +52,11 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		addEventRoot.setVisible(false);
 		addEventError.setVisible(false);
 		
-		Occation eventlist = new Occation();
+		eventlist = new Occation();
 		eventlist.loadEvents("data/monthlyEvents.csv");
 		
 		//find the number of days in the month
-		Calendar c = new GregorianCalendar(2021, Integer.parseInt(month) - 1, 1);
+		Calendar c = new GregorianCalendar(Integer.parseInt(year), Integer.parseInt(month) - 1, 1);
 		int days = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 		int fdaypos = -1;
 		
@@ -102,7 +105,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			  
 			  // Adds the event name to the correct date as long as the month and the day match the one on file
 			  for (Plan event: eventlist.getEvents()) 
-			    if (event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(currDay)) || event.getDate().split("/")[1].equals(String.valueOf(currDay))))
+			    if (event.getDate().split("/")[2].equals(year) && event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(currDay)) || event.getDate().split("/")[1].equals(String.valueOf(currDay))))
 			      filler += String.format("-%s\n+%s\n", event.getName(), event.convertToStandard());
 
 			  
@@ -189,7 +192,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 				rootPane.getChildren().setAll(newPane);
 				
 				CalenderController controller = loader.getController();
-				controller.initialize(newMonth, "2021");
+				controller.initialize(newMonth, year);
 			}
 			
 			else if(temp.equals(decrementMonth)) {
@@ -201,7 +204,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 				rootPane.getChildren().setAll(newPane);
 				
 				CalenderController controller = loader.getController();
-				controller.initialize(newMonth, "2021");
+				controller.initialize(newMonth, year);
 			}
 		}
 		catch(Exception e) {e.printStackTrace();}
@@ -254,28 +257,17 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 					vals = addEventDate.getValue().toString().split("-");
 					newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
 				}
-				System.out.println(newDate);
-				String isReminder = reminderCheckbox.isSelected() ? "T":"F";
-				//SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				
-				// Didn't know if we had a formal method for writing to the data file, but this does the trick
-				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
-				PrintWriter printWriter = new PrintWriter(fileWriter);
+				//append the new event to the end of the file
+				eventlist.appendToFile(new Plan(newDate, addEventTime.getText(),addEventName.getText(),reminderCheckbox.isSelected(), addEventNotes.getText() ));
 				
-				if(addEventNotes.getText().isEmpty())
-					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, "-"));
-	
-				else
-					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, addEventNotes.getText()));
-				
-				printWriter.close();
-				
+				//reload the view
 				FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
 				AnchorPane newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);
 				
 				CalenderController controller = loader.getController();
-				controller.initialize(newDate.split("/")[0], "2021");
+				controller.initialize(newDate.split("/")[0], year);
 				
 				}catch(Exception e) {e.printStackTrace();}
 			}
