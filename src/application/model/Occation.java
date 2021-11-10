@@ -150,6 +150,7 @@ public class Occation {
 
 	public void addEvent(Plan newEvent) {
 		events.add(newEvent);
+	}
 
 	public void appendToFile( Plan newPlan ) {
 		FileWriter filewriter;
