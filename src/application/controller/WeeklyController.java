@@ -42,17 +42,8 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
     @FXML private Button wedButton;
     @FXML private Button sunButton;
     @FXML private Button tuesButton;
+   
     
-    @FXML private Label thursLabel;
-    @FXML private Label monLabel;
-    @FXML private Label friLabel;
-    @FXML private Label sunLabel;
-    @FXML private Label wedLabel;
-    @FXML private Label satLabel;
-    @FXML private Label tuesLabel;
-    
-
- 
 	@Override
     public void initialize(URL location, ResourceBundle resources){
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
@@ -159,81 +150,62 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		eventlist.loadEvents("data/monthlyEvents.csv");
 		//System.out.println(day);
 		//System.out.println(sun.getDayOfWeek());
+			
+		/*
+		int i = 0;
+		for(Node node : weeklyGrid.getChildren()) {
+			
+			String curr_day = "", total = "";
+			
+			if(node instanceof Label)
+			curr_day = days[i++];
+			
+			for(Plan event : eventlist.getEvents()) {
+				
+				if(event.getDate().split("/")[1].equals(curr_day) && event.getDate().split("/")[0].equals(month)) 
+					total += String.format("+(%s)\n-%s\n-%s\n\n", event.getDate(), event.getName(), event.convertToStandard(), event.getNote());
+				else total += "";
+			}
+			
+			if(node instanceof Label)
+				((Label) node).setText(total);
+		}
+		*/
+		
+		for(int i = 0; i < days.length; i++) {
+			checkEvent(days, eventlist, month);
+		}
+		
 		
 
-	   for (String s: days) {
-		   checkEvent(s,eventlist,month);
-		   
-	   }
-	
-	
+		
 
 	}
+	
 	//mostly done
-	public void checkEvent(String day, Occation eventlist, String month) {	
-		for( int i = 0; i < eventlist.getEvents().size(); i++ ) {
-				if(eventlist.getEvents().get(i).getDate().split("/")[1].equals(day) && eventlist.getEvents().get(i).getDate().split("/")[0].equals(month) ) {
-					String temp = "";
-					String ret= eventlist.getEvents().get(i).getName();
-					String one = eventlist.getEvents().get(i).getDate();
-					String here= ret + " - " + one;
-					
-					String bla = " - "+eventlist.getEvents().get(i).convertToStandard();
-					String cat = "\n" + eventlist.getEvents().get(i).getNote() + "\n";
-					
-					String total = here +bla +cat;
-					//int countWed=0;
-					//System.out.println(total);
-					
-					String eventDay = eventlist.getEvents().get(i).getDay();
-					if(eventlist.getEvents().get(i).getDate().split("/")[0].equals(month)) {
-					if (eventDay.equals("Wednesday")) {
-						System.out.println("wed");
-						wedLabel.setText(total);
-						//System.out.println(total);
-						//countWed++;
-						//if(countWed==1) {
-							//wedLabel.setText(wedLabel.getText() + "total");}
-					}
-					else if (eventDay.equals("Tuesday")) {
-						System.out.println("tues");
-						tuesLabel.setText(total);
-						//System.out.println(total);
-						//countWed++;
-						//if(countWed==1) {
-							//tuesLabel.setText(tuesLabel.getText() + "total");}
-					}
-					else if (eventDay.equals("Monday")) {
-						System.out.println("mon");
-						monLabel.setText(total);
-					}
-					else if (eventDay.equals("Thursday")) {
-						System.out.println("thur");
-						thursLabel.setText(total);
-					}
-					else if (eventDay.equals("Friday")) {
-						System.out.println("fri");
-						friLabel.setText(total);
-					}
-					else if (eventDay.equals("Saturday")) {
-						System.out.println("sat");
-						satLabel.setText(total);
-					}
-					else {
-						System.out.println("sun");
-						sunLabel.setText(total);
-					}
-
+	public void checkEvent(String[] days, Occation eventlist, String month) {
+		
+		int i = 0;
+		for(Node node : weeklyGrid.getChildren()) {
 			
-					System.out.println(total);
+			String curr_day = "", total = "";
+			//String total = "";
+			
+			if(node instanceof Label)
+			curr_day = days[i++];
+			
+			for(Plan event : eventlist.getEvents()) {
 				
-					
-					}
-					
-				}	
-					
-				}
+				if(event.getDate().split("/")[1].equals(curr_day) && event.getDate().split("/")[0].equals(month)) 
+					total += String.format("+(%s)\n-%s\n-%s\n\n", event.getDate(), event.getName(), event.convertToStandard(), event.getNote());
+				else total += "";
 			}
+			
+			if(node instanceof Label)
+				((Label) node).setText(total);
+		}
+		
+	}
 	
 		
 	@Override
