@@ -275,7 +275,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		}
 	}
 	
-	public boolean isValidDate(String date) {
+	public static boolean isValidDate(String date) {
 		String split[] = date.split("/");
 		if( split.length < 3 ) {
 			return false;

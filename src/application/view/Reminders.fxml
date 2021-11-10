@@ -1,115 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RemindersController">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RemindersController">
    <children>
       <Pane prefHeight="800.0" prefWidth="800.0">
          <children>
-            <CheckBox fx:id="remind3" layoutX="167.0" layoutY="254.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <ImageView fitHeight="819.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/reminders.png" />
+               </image>
+            </ImageView>
+            <CheckBox fx:id="remind3" layoutX="170.0" layoutY="210.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font></CheckBox>
-            <CheckBox fx:id="remind8" layoutX="167.0" layoutY="404.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind8" layoutX="170.0" layoutY="360.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind7" layoutX="167.0" layoutY="374.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind7" layoutX="170.0" layoutY="330.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind6" layoutX="167.0" layoutY="344.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind6" layoutX="170.0" layoutY="300.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind5" layoutX="167.0" layoutY="314.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind5" layoutX="170.0" layoutY="270.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind4" layoutX="167.0" layoutY="284.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind4" layoutX="170.0" layoutY="240.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind9" layoutX="167.0" layoutY="434.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind9" layoutX="170.0" layoutY="390.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox id="MainScreenButtons" fx:id="remind1" layoutX="167.0" layoutY="194.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox id="MainScreenButtons" fx:id="remind1" layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind2" layoutX="167.0" layoutY="224.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind2" layoutX="170.0" layoutY="180.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind10" layoutX="167.0" layoutY="464.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind10" layoutX="170.0" layoutY="420.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind11" layoutX="167.0" layoutY="494.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box" wrapText="true">
+            <CheckBox fx:id="remind11" layoutX="170.0" layoutY="450.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind12" layoutX="167.0" layoutY="524.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind12" layoutX="170.0" layoutY="480.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind13" layoutX="167.0" layoutY="554.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind13" layoutX="170.0" layoutY="510.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind14" layoutX="167.0" layoutY="584.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind14" layoutX="170.0" layoutY="540.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind15" layoutX="167.0" layoutY="614.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind15" layoutX="170.0" layoutY="570.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind16" layoutX="167.0" layoutY="644.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind16" layoutX="170.0" layoutY="600.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind17" layoutX="167.0" layoutY="674.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind17" layoutX="170.0" layoutY="630.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind18" layoutX="167.0" layoutY="704.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind18" layoutX="170.0" layoutY="660.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind19" layoutX="167.0" layoutY="734.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind19" layoutX="170.0" layoutY="690.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="remind20" layoutX="167.0" layoutY="764.0" mnemonicParsing="false" onAction="#handle" prefHeight="28.0" prefWidth="450.0" text="This is a check box">
+            <CheckBox fx:id="remind20" layoutX="170.0" layoutY="720.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="460.0" style="-fx-background-color: white;" text="This is a check box">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </CheckBox>
-            <Button id="MainScreenButtons" fx:id="backButton" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#goToMonthly" stylesheets="@../../../styles/stylesheet.css" text="Back" />
+            <Button id="MainScreenButtons" fx:id="backButton" layoutX="24.0" layoutY="29.0" mnemonicParsing="false" onAction="#goToMonthly" stylesheets="@../../../styles/stylesheet.css" text="Back" />
+            <Label layoutX="269.0" layoutY="29.0" style="-fx-background-color: #4ad3d3;" text="Reminders" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="45.0" />
+               </font>
+            </Label>
+            <Button id="MainScreenButtons" fx:id="addButton" layoutX="746.0" layoutY="29.0" mnemonicParsing="false" onAction="#addEventGuiHandler" stylesheets="@../../../styles/stylesheet.css" text="+">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <AnchorPane fx:id="addEventRoot" layoutX="201.0" layoutY="242.0" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: black; -fx-background-color: #ededed;">
+               <children>
+                  <Pane prefHeight="62.0" prefWidth="400.0" style="-fx-background-color: #3199e8; -fx-border-color: black;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="84.0" layoutY="7.0" prefHeight="48.0" prefWidth="233.0" text="Add Event">
+                           <font>
+                              <Font name="Britannic Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Button id="MainScreenButtons" fx:id="addEventX" layoutX="348.0" layoutY="10.0" mnemonicParsing="false" onAction="#addEventGuiHandler" stylesheets="@../../../styles/stylesheet.css" text="X" />
+                     </children>
+                  </Pane>
+                  <Button id="MainScreenButtons" fx:id="addEventAdd" layoutX="154.0" layoutY="347.0" mnemonicParsing="false" onAction="#addEventGuiHandler" stylesheets="@../../../styles/stylesheet.css" text="Add Event" />
+                  <TextField fx:id="addEventNotes" layoutX="106.0" layoutY="266.0" prefHeight="48.0" prefWidth="197.0" />
+                  <TextField fx:id="addEventName" layoutX="104.0" layoutY="95.0" prefWidth="200.0" />
+                  <DatePicker fx:id="addEventDate" layoutX="154.0" layoutY="149.0" prefHeight="25.0" prefWidth="100.0" />
+                  <Label layoutX="185.0" layoutY="78.0" text="Name *">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="181.0" layoutY="132.0" prefHeight="17.0" prefWidth="39.0" text="Date *">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addEventTime" layoutX="129.0" layoutY="209.0" />
+                  <Label alignment="CENTER" layoutX="154.0" layoutY="192.0" prefHeight="17.0" prefWidth="100.0" text="Time (Military) *">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="160.0" layoutY="251.0" text="Optional Note(s)">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addEventError" layoutX="142.0" layoutY="314.0" text="Invalid Input" textFill="RED">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="reminderCheckbox" layoutX="305.0" layoutY="101.0" mnemonicParsing="false" onAction="#addEventGuiHandler" text="Reminder?">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
 
          </children>
       </Pane>

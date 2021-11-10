@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.controller.CalenderController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,10 +8,14 @@ import application.Main;
 import application.model.Occation;
 import application.model.Plan;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 //import javafx.scene.control.TextArea;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +32,13 @@ import javafx.scene.layout.AnchorPane;
 
 public class RemindersController implements EventHandler<ActionEvent>, Initializable {
 		
+	@FXML AnchorPane rootPane, addEventRoot;
+	@FXML Button backButton, addButton, addEventAdd, addEventX, incrementMonth, decrementMonth;
+	@FXML TextField addEventName, addEventTime, addEventNotes;
+	@FXML DatePicker addEventDate;
+	@FXML Label MonthName, addEventError;
+	@FXML CheckBox reminderCheckbox;
+	
 	private Occation myEvents;
 	private Occation remindEvents;
 	@FXML 
@@ -80,6 +92,8 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		 */
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
+			addEventRoot.setVisible(false);
+			addEventError.setVisible(false);
 			boxes = new CheckBox[]{remind1, remind2, remind3, remind4, remind5, remind6, remind7, remind8, remind9, remind10, remind11, remind12, remind13, remind14, remind15, remind16, remind17, remind18, remind19, remind20};
 			myEvents = new Occation();
 			remindEvents = new Occation();
@@ -107,13 +121,11 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			for(int i = 0; i < 20; i++) {
 				if(boxes[i].isSelected()) {
 					Plan finished = remindEvents.getEvents().get(i);
-					System.out.println(finished.remindersDisplay());
+					//System.out.println(finished.remindersDisplay());
 					myEvents.removeEvent("data/MonthlyEvents.csv", finished);
 					remindEvents.getEvents().remove(i);
 					boxes[i].setDisable(true);
 					break;
-				}else {
-					System.out.println("something went wrong...");
 				}
 			}
 		}
@@ -167,5 +179,65 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			remind19.setVisible(false);
 			remind20.setVisible(false);
 		}	
+		
+		public void addEventGuiHandler(Event event) {
+			
+			
+			
+			
+			if(event.getSource().equals(addButton)) {
+				addEventRoot.setVisible(true);
+				addEventError.setVisible(false);
+			}
+			else if(event.getSource().equals(addEventX)) {
+				addEventName.clear();
+				addEventDate.setValue(null);
+				addEventTime.clear();
+				addEventNotes.clear();
+				addEventRoot.setVisible(false);
+				
+			}
+			else if(event.getSource().equals(addEventAdd)) {
+				
+				if(addEventName.getText().trim().isEmpty() || ( addEventDate.getValue() == null && !CalenderController.isValidDate( addEventDate.getEditor().getText() ) ) || addEventTime.getText().trim().isEmpty()) {
+					addEventName.clear();
+					addEventDate.setValue(null);
+					addEventTime.clear();
+					addEventError.setVisible(true);
+				}
+				else {
+					
+					//System.out.println(addEventDate.getEditor().getText());
+					
+					addEventRoot.setVisible(false);
+					
+					String vals[];
+					String newDate;
+					
+					// CREATE THE EVENT WITH THE INFO HERE
+					try {
+					if(addEventDate.getValue() == null ){
+						vals = addEventDate.getEditor().getText().split("/");
+						newDate = String.format("%s/%s/%s", vals[0], vals[1], vals[2] );
+					}
+					else {
+						vals = addEventDate.getValue().toString().split("-");
+						newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
+					}
+					
+					//append the new event to the end of the file
+					myEvents.appendToFile(new Plan(newDate, addEventTime.getText(),addEventName.getText(),reminderCheckbox.isSelected(), addEventNotes.getText() ));
+					
+					//reload the view
+					FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
+					AnchorPane newPane = (AnchorPane) loader.load();
+					rootPane.getChildren().setAll(newPane);
+					
+					
+					}catch(Exception e) {e.printStackTrace();}
+				}
+				
+			}
+		}
 		
 }

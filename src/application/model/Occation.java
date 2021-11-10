@@ -104,21 +104,21 @@ public class Occation {
 				for(int j = 0; j < 5; j++) {
 					temp[j] = temp[j].trim();
 				}
-				System.out.println("temp[0]: " + temp[0] + "\nstrdate: " + strDate);
-				System.out.println("temp[1]: " + temp[1] + "\nfinsihed time: " + finished.getTime());
+				//System.out.println("temp[0]: " + temp[0] + "\nstrdate: " + strDate);
+				//System.out.println("temp[1]: " + temp[1] + "\nfinsihed time: " + finished.getTime());
 
-				System.out.println((temp[0].equals(strDate) && temp[1].equals(finished.getTime())));
+				//System.out.println((temp[0].equals(strDate) && temp[1].equals(finished.getTime())));
 				if(temp[0].equals(strDate) && temp[1].equals(finished.getTime())) {
-					System.out.println("removing...:");
+					//System.out.println("removing...:");
 					events.remove(count);
 				}else {
-					System.out.println("adding to file...");
+					//System.out.println("adding to file...");
 					printer.write(fileLine);
 					printer.write(System.getProperty( "line.separator" ));
 				}
 				count++;
 			}
-				//printer.write(System.getProperty( "line.separator" ));
+				
 				scan.close();
 				printer.close();
 				copyFiletoFile(file, tempFile);
@@ -135,7 +135,7 @@ public class Occation {
 			
 			while(scan.hasNextLine()) {
 				String fileLine = scan.nextLine();
-				System.out.println("adding to me.csv" + fileLine);
+				//System.out.println("adding to me.csv" + fileLine);
 				printer.write(fileLine);
 				printer.write(System.getProperty( "line.separator" ));
 			}
@@ -150,6 +150,7 @@ public class Occation {
 
 	public void addEvent(Plan newEvent) {
 		events.add(newEvent);
+	}
 
 	public void appendToFile( Plan newPlan ) {
 		FileWriter filewriter;
