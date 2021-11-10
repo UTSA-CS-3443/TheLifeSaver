@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 public class RemindersController implements EventHandler<ActionEvent>, Initializable {
 		
 	private Occation myEvents;
+	private Occation remindEvents;
 	@FXML 
 	private CheckBox remind1;
 	@FXML 
@@ -81,11 +82,13 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		public void initialize(URL location, ResourceBundle resources) {
 			boxes = new CheckBox[]{remind1, remind2, remind3, remind4, remind5, remind6, remind7, remind8, remind9, remind10, remind11, remind12, remind13, remind14, remind15, remind16, remind17, remind18, remind19, remind20};
 			myEvents = new Occation();
+			remindEvents = new Occation();
 			myEvents.loadEvents("data/monthlyEvents.csv");
 			notVisible();
 			int count = 0;
 				for(Plan event : myEvents.getEvents()) {
 					if(count < 20 && event.isRemind()) {
+						remindEvents.addEvent(event);
 						boxes[count].setText(event.remindersDisplay());
 						boxes[count].setVisible(true);
 						count++;
@@ -103,9 +106,10 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			//TODO: check which checkbox was marked
 			for(int i = 0; i < 20; i++) {
 				if(boxes[i].isSelected()) {
-					Plan finished = myEvents.getEvents().get(i);
+					Plan finished = remindEvents.getEvents().get(i);
 					System.out.println(finished.remindersDisplay());
 					myEvents.removeEvent("data/MonthlyEvents.csv", finished);
+					remindEvents.getEvents().remove(i);
 					boxes[i].setDisable(true);
 					break;
 				}else {
@@ -136,49 +140,7 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			}
 		}
 		
-		/**
-		 * Sends the user to a different view, Weekly Calender.
-		 * 
-		 * @param event, ActionEvent
-		 */
-		public void goToWeekly(ActionEvent event) {
-			//System.out.println("will go to home");
-			try {
-				AnchorPane root = new AnchorPane();
-				
-				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation( Main.class.getResource("view/Weekly.fxml") );
-				root = (AnchorPane) loader.load();
-		
-				Scene scene = new Scene( root );
-				Main.stage.setScene( scene );
-				Main.stage.show();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-		/**
-		 * Sends the user to a different view, Daily To Do List.
-		 * 
-		 * @param event, ActionEvent
-		 */
-		public void goToDos(ActionEvent event) {
-			//System.out.println("will go to home");
-			try {
-				AnchorPane root = new AnchorPane();
-				
-				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation( Main.class.getResource("view/ToDo.fxml") );
-				root = (AnchorPane) loader.load();
-		
-				Scene scene = new Scene( root );
-				Main.stage.setScene( scene );
-				Main.stage.show();
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+
 		
 		/**
 		 *   Sets all the checkBoxes to not visible.

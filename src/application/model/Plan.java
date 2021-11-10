@@ -25,7 +25,7 @@ public class Plan { //java already has an Event class built in so i went with th
 	}
 
 	public String getDate() {
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yy"); 
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy"); 
 		String sdate = format.format(date);
 		//its probably going to be easier if this returns a string so we dont have to call this code every time
 		return sdate;

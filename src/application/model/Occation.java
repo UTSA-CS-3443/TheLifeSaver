@@ -117,6 +117,7 @@ public class Occation {
 				}
 				count++;
 			}
+				//printer.write(System.getProperty( "line.separator" ));
 				scan.close();
 				printer.close();
 				copyFiletoFile(file, tempFile);
@@ -143,6 +144,10 @@ public class Occation {
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void addEvent(Plan newEvent) {
+		events.add(newEvent);
 	}
 
 	/**
