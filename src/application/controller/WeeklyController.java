@@ -168,7 +168,7 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 			for(Plan event : eventlist.getEvents()) {
 				
 				if(event.getDate().split("/")[1].equals(curr_day) && event.getDate().split("/")[0].equals(month)) 
-					total += String.format("+(%s)\n-%s\n-%s\n\n", event.getDate(), event.getName(), event.convertToStandard(), event.getNote());
+					total += String.format("(%s)\n-%s\n-%s\n+%s\n", event.getDate(), event.getName(), event.convertToStandard(), event.getNote());
 				else total += "";
 			}
 			

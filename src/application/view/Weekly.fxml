@@ -30,53 +30,53 @@
           <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="sunButton" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="117.0" text="Button" />
+            <Button id="MainScreenButtons" fx:id="sunButton" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="117.0" stylesheets="@../../../styles/stylesheet.css" text="Button" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="512.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.rowIndex="1" />
-            <Button fx:id="monButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="134.0" text="Button" GridPane.columnIndex="1" />
-            <Button fx:id="tuesButton" mnemonicParsing="false" onAction="#handle" prefHeight="0.0" prefWidth="106.0" text="Button" GridPane.columnIndex="2" />
-            <Button fx:id="wedButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="121.0" text="Button" GridPane.columnIndex="3" />
-            <Button fx:id="thursButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="121.0" text="Button" GridPane.columnIndex="4" />
-            <Button fx:id="friButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="122.0" text="Button" GridPane.columnIndex="5" />
-            <Button fx:id="satButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="126.0" text="Button" GridPane.columnIndex="6" />
+            <Button id="MainScreenButtons" fx:id="monButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="134.0" stylesheets="@../../../styles/stylesheet.css" text="Button" GridPane.columnIndex="1" />
+            <Button id="MainScreenButtons" fx:id="tuesButton" mnemonicParsing="false" onAction="#handle" prefHeight="0.0" prefWidth="106.0" stylesheets="@../../../styles/stylesheet.css" text="Button" GridPane.columnIndex="2" />
+            <Button id="MainScreenButtons" fx:id="wedButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="121.0" stylesheets="@../../../styles/stylesheet.css" text="Button" GridPane.columnIndex="3" />
+            <Button id="MainScreenButtons" fx:id="thursButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="121.0" stylesheets="@../../../styles/stylesheet.css" text="Button" GridPane.columnIndex="4" />
+            <Button id="MainScreenButtons" fx:id="friButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="122.0" stylesheets="@../../../styles/stylesheet.css" text="Button" GridPane.columnIndex="5" />
+            <Button id="MainScreenButtons" fx:id="satButton" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="126.0" stylesheets="@../../../styles/stylesheet.css" text="Button" GridPane.columnIndex="6" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="514.0" layoutX="11.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="515.0" layoutX="118.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="104.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="512.0" layoutX="225.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="106.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="513.0" layoutX="332.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="106.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="512.0" layoutX="439.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="105.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="516.0" layoutX="546.0" layoutY="81.0" stroke="BLACK" strokeType="INSIDE" width="106.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <Label fx:id="sunLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="509.0" prefWidth="106.0" text="Label" wrapText="true" GridPane.rowIndex="1">
+            <Label fx:id="sunLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="509.0" prefWidth="106.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="monLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="514.0" prefWidth="106.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="monLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="514.0" prefWidth="106.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="tuesLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="59.0" prefHeight="505.0" prefWidth="106.0" text="Label" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="tuesLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="59.0" prefHeight="505.0" prefWidth="106.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="wedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="59.0" prefHeight="509.0" prefWidth="104.0" text="Label" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label fx:id="wedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="59.0" prefHeight="509.0" prefWidth="104.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="thursLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="332.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label fx:id="thursLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="332.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="friLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Label fx:id="friLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="59.0" prefHeight="578.0" prefWidth="107.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
-            <Label fx:id="satLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="59.0" prefHeight="500.0" prefWidth="105.0" text="Label" wrapText="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+            <Label fx:id="satLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="546.0" layoutY="59.0" prefHeight="500.0" prefWidth="105.0" text="Label" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <font>
-                  <Font size="13.0" />
+                  <Font name="System Bold" size="10.0" />
                </font>
             </Label>
          </children>
