@@ -1,3 +1,13 @@
+/**
+ * CalenderController handles the creation and adding of events to the cells of the Monthly calendar,
+ * as well as general formatting of the calendar itself
+ * 
+ * @author Tanner Bibb - ybw098
+ * @author Calvin Newcomb - <ENTER abc123 HERE>
+ * 
+ * UTSA CS 3443 - Final_Project - TheLifeSaver
+ */
+
 package application.controller;
 
 import java.time.LocalDate;
@@ -23,6 +33,9 @@ import java.io.PrintWriter;
 
 public class CalenderController implements javafx.event.EventHandler<Event>{
 	
+	/**
+	 * Class/FXML Variables
+	 */
 	@FXML AnchorPane rootPane, addEventRoot;
 	@FXML Button backButton, addButton, addEventAdd, addEventX, incrementMonth, decrementMonth;
 	@FXML TextField addEventName, addEventTime, addEventNotes;
@@ -34,6 +47,11 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	Occation eventlist;
 	String year;
 	
+	/**
+	 * Populates the monthly calendar view when scene loads
+	 * @param month
+	 * @param year
+	 */
 	public void initialize(String month, String year) {
 		// TODO Auto-generated method stub
 		//load in the data of the current month
@@ -170,6 +188,10 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		
 	}
 
+	/**
+	 * Handles the click events/Button press events on the Monthly calendar scene
+	 * @param event
+	 */
 	@Override
 	public void handle(Event event) {
 	
@@ -212,7 +234,10 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	}
 	
 	
-	
+	/**
+	 * Handles click events/Button press events on the event adder gui 
+	 * @param event
+	 */
 	public void addEventGuiHandler(Event event) {
 		
 		
@@ -275,6 +300,11 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		}
 	}
 	
+	/**
+	 * Checks if a date typed in a DatePicker field is valid
+	 * @param date
+	 * @return boolean value of a date string
+	 */
 	public static boolean isValidDate(String date) {
 		String split[] = date.split("/");
 		if( split.length < 3 ) {

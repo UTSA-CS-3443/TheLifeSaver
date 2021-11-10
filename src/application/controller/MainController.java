@@ -1,3 +1,11 @@
+/**
+ * MainController handles populating the main scene and handles navigation to 
+ * other views of the application
+ * 
+ * @author Tanner Bibb - ybw098
+ * 
+ * UTSA CS 3443 - Final_Project - TheLifeSaver
+ */
 package application.controller;
 
 import javafx.event.EventHandler;
@@ -15,7 +23,6 @@ public class MainController implements EventHandler<ActionEvent> {
 	@FXML
 	private AnchorPane rootPane;
 	
-	// Variable names will be btn1-4 until we actually finish the fxmls
 	@FXML
 	private Button monthlyBtn;
 	
@@ -28,6 +35,10 @@ public class MainController implements EventHandler<ActionEvent> {
 	@FXML
 	private Button remindBtn;
 	
+	/**
+	 * Handles the button press events on the main view for navigating to other views
+	 * @param event
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		
@@ -38,7 +49,6 @@ public class MainController implements EventHandler<ActionEvent> {
 		try {
 		
 			switch(tmp.getText()) {
-			// **We can edit the case names if needed**
 			
 			case "Daily": 
 				loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
@@ -54,10 +64,8 @@ public class MainController implements EventHandler<ActionEvent> {
 				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
 				LocalDateTime now = LocalDateTime.now();
 				String month = now.format(dtf).split("/")[0], year = now.format(dtf).split("/")[2];
-				// So we can dynamically set the month in the calendar controller instead of being stuck with "now"
 				CalenderController controller = loader.getController();
 				controller.initialize(month, year);
-				
 				break;
 				
 			case "Reminders":

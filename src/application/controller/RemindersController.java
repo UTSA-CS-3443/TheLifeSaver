@@ -1,3 +1,12 @@
+/**
+ * RemindersController is responsible for adding/removing reminders from the
+ * Reminders view
+ * 
+ * @author Molly Frost - iav811
+ * UTSA CS 3443 - Final_Project - TheLifeSaver
+ *
+ */
+
 package application.controller;
 
 import application.controller.CalenderController;
@@ -22,16 +31,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
-/**
-
- * @author Molly Frost - iav811
- * UTSA CS 3443 - Final_Project
- *
- */
-
-
 public class RemindersController implements EventHandler<ActionEvent>, Initializable {
-		
+	
+	/**
+	 * Class/FXML variables
+	 */
 	@FXML AnchorPane rootPane, addEventRoot;
 	@FXML Button backButton, addButton, addEventAdd, addEventX, incrementMonth, decrementMonth;
 	@FXML TextField addEventName, addEventTime, addEventNotes;
@@ -82,11 +86,10 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 	@FXML 
 	private CheckBox remind20;
 	
-	private CheckBox[] boxes;// = {remind1, remind2, remind3, remind4, remind5, remind6, remind7, remind8, remind9, remind10, remind11, remind12, remind13, remind14, remind15, remind16, remind17, remind18, remind19, remind20};
+	private CheckBox[] boxes;
 	
 		/**
-		 *    
-		 * 
+		 * Populates the reminders view with our events before the scene fully loads
 		 * @param location, URL
 		 * @param resources, ResourceBundle
 		 */
@@ -111,17 +114,14 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		}
 		
 		/**
-		 * 
-		 * 
+		 * Handles the CheckBox events- disabling them when checked
 		 * @param event, ActionEvent
 		 */
 		@Override
 		public void handle(ActionEvent event) {
-			//TODO: check which checkbox was marked
 			for(int i = 0; i < 20; i++) {
 				if(boxes[i].isSelected()) {
 					Plan finished = remindEvents.getEvents().get(i);
-					//System.out.println(finished.remindersDisplay());
 					myEvents.removeEvent("data/MonthlyEvents.csv", finished);
 					remindEvents.getEvents().remove(i);
 					boxes[i].setDisable(true);
@@ -131,12 +131,10 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 		}
 		
 		/**
-		 * Sends the user to a different view, Monthly Calender.
-		 * 
+		 * Sends the user to a different view, Monthly Calendar.
 		 * @param event, ActionEvent
 		 */
 		public void goToMonthly(ActionEvent event) {
-			//System.out.println("will go to home");
 			try {
 				AnchorPane root = new AnchorPane();
 				
@@ -180,11 +178,12 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			remind20.setVisible(false);
 		}	
 		
+		/**
+		 * Handles the button press events on the event adder GUI
+		 * @param event
+		 */
 		public void addEventGuiHandler(Event event) {
-			
-			
-			
-			
+		
 			if(event.getSource().equals(addButton)) {
 				addEventRoot.setVisible(true);
 				addEventError.setVisible(false);
@@ -206,8 +205,6 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 					addEventError.setVisible(true);
 				}
 				else {
-					
-					//System.out.println(addEventDate.getEditor().getText());
 					
 					addEventRoot.setVisible(false);
 					
