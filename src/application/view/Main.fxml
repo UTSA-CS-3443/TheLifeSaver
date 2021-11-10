@@ -13,7 +13,7 @@
             <Image url="@../../../images/main%20page.png" />
          </image>
       </ImageView>
-      <Button id="MainScreenButtons" fx:id="dailyBtn" layoutX="409.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Daily" />
+      <Button id="MainScreenButtons" fx:id="dailyBtn" layoutX="409.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Daily (Dont Click Yet)" wrapText="true" />
       <Button id="MainScreenButtons" fx:id="monthlyBtn" layoutX="161.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Monthly" />
       <Button id="MainScreenButtons" fx:id="remindBtn" layoutX="535.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Reminders" />
       <Button id="MainScreenButtons" fx:id="weeklyBtn" layoutX="284.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Weekly" />
