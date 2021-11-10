@@ -100,7 +100,5 @@
             <Font name="Bell MT Bold" size="12.0" />
          </font>
       </Label>
-      <Button id="windows" fx:id="decrementWeek" layoutX="267.0" layoutY="63.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="&lt;" />
-      <Button id="windows" fx:id="incrementWeek" layoutX="530.0" layoutY="64.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="&gt;" />
    </children>
 </AnchorPane>

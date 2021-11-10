@@ -148,48 +148,19 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		
 		Occation eventlist = new Occation();
 		eventlist.loadEvents("data/monthlyEvents.csv");
-		//System.out.println(day);
-		//System.out.println(sun.getDayOfWeek());
-			
-		/*
-		int i = 0;
-		for(Node node : weeklyGrid.getChildren()) {
-			
-			String curr_day = "", total = "";
-			
-			if(node instanceof Label)
-			curr_day = days[i++];
-			
-			for(Plan event : eventlist.getEvents()) {
-				
-				if(event.getDate().split("/")[1].equals(curr_day) && event.getDate().split("/")[0].equals(month)) 
-					total += String.format("+(%s)\n-%s\n-%s\n\n", event.getDate(), event.getName(), event.convertToStandard(), event.getNote());
-				else total += "";
-			}
-			
-			if(node instanceof Label)
-				((Label) node).setText(total);
-		}
-		*/
 		
 		for(int i = 0; i < days.length; i++) {
 			checkEvent(days, eventlist, month);
 		}
 		
-		
-
-		
-
 	}
 	
-	//mostly done
 	public void checkEvent(String[] days, Occation eventlist, String month) {
 		
 		int i = 0;
 		for(Node node : weeklyGrid.getChildren()) {
 			
 			String curr_day = "", total = "";
-			//String total = "";
 			
 			if(node instanceof Label)
 			curr_day = days[i++];
