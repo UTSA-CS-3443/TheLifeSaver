@@ -31,6 +31,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	@FXML CheckBox reminderCheckbox;
 	@FXML GridPane calenderGrid;
 	static String globalMonth;
+	Occation eventlist;
 	
 	public void initialize(String month, String year) {
 		// TODO Auto-generated method stub
@@ -48,7 +49,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		addEventRoot.setVisible(false);
 		addEventError.setVisible(false);
 		
-		Occation eventlist = new Occation();
+		eventlist = new Occation();
 		eventlist.loadEvents("data/monthlyEvents.csv");
 		
 		//find the number of days in the month
@@ -254,21 +255,25 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 					newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
 				}
 				System.out.println(newDate);
-				String isReminder = reminderCheckbox.isSelected() ? "T":"F";
+//				String isReminder = reminderCheckbox.isSelected() ? "T":"F";
 				//SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				
 				// Didn't know if we had a formal method for writing to the data file, but this does the trick
-				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
-				PrintWriter printWriter = new PrintWriter(fileWriter);
+//				FileWriter fileWriter = new FileWriter("data/monthlyEvents.csv", true);
+//				PrintWriter printWriter = new PrintWriter(fileWriter);
+//				
+//				if(addEventNotes.getText().isEmpty())
+//					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, "-"));
+//	
+//				else
+//					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, addEventNotes.getText()));
 				
-				if(addEventNotes.getText().isEmpty())
-					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, "-"));
-	
-				else
-					printWriter.println(String.format("%s,%s,%s,%s,%s", newDate, addEventTime.getText(), addEventName.getText(), isReminder, addEventNotes.getText()));
 				
-				printWriter.close();
 				
+//				printWriter.close();
+				
+				eventlist.appendToFile(new Plan(newDate, addEventTime.getText(),addEventName.getText(),reminderCheckbox.isSelected(), addEventNotes.getText() ));
+				System.out.println(newDate + addEventTime.getText() + addEventName.getText() + reminderCheckbox.isSelected() + addEventNotes.getText() );
 				FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
 				AnchorPane newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);

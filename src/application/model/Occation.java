@@ -3,6 +3,7 @@ package application.model;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -132,6 +133,28 @@ public class Occation {
 			scan.close();
 			printer.close();
 		}catch( IOException e ) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void appendToFile( Plan newPlan ) {
+		FileWriter filewriter;
+		try {
+			
+			filewriter = new FileWriter("data/monthlyEvents.csv", true);
+			PrintWriter printWriter = new PrintWriter(filewriter);
+		
+			if( newPlan.getNote().isEmpty() ) {
+				printWriter.println(String.format("%s,%s,%s,%s,%s", newPlan.getDate(), newPlan.getTime(), newPlan.getName(), newPlan.isRemind() ? "T":"F", "-" ));
+			}
+			else {
+				printWriter.println(String.format("%s,%s,%s,%s,%s", newPlan.getDate(), newPlan.getTime(), newPlan.getName(), newPlan.isRemind() ? "T" : "F", newPlan.getNote() ) );
+			}
+			
+			printWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

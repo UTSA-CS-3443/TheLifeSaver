@@ -1,5 +1,6 @@
 package application.model;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -17,6 +18,22 @@ public class Plan { //java already has an Event class built in so i went with th
 	public Plan( Date date, String time, String name, boolean remind, String note ) {
 		
 		this.date = date;
+		this.time = time;
+		this.name = name;
+		this.remind = remind;
+		this.note = note;
+		
+	}
+	
+	public Plan( String date, String time, String name, boolean remind, String note ) {
+		
+		DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+		try {
+			this.date = (Date)formatter.parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.time = time;
 		this.name = name;
 		this.remind = remind;
