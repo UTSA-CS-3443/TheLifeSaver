@@ -54,7 +54,6 @@ public class MainController implements EventHandler<ActionEvent> {
 				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
 				LocalDateTime now = LocalDateTime.now();
 				String month = now.format(dtf).split("/")[0], year = now.format(dtf).split("/")[2];
-				
 				// So we can dynamically set the month in the calendar controller instead of being stuck with "now"
 				CalenderController controller = loader.getController();
 				controller.initialize(month, year);
