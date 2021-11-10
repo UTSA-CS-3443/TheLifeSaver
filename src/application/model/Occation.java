@@ -33,7 +33,7 @@ public class Occation {
 		try {
 			
 			File file =  new File(filename);
-			Scanner scan = new Scanner( file );
+			Scanner scan = new Scanner( file ); 
 			
 			while(scan.hasNextLine()) {
 				
@@ -48,7 +48,8 @@ public class Occation {
 				if(temp[3].equals("T")) {
 					isRemind = true;
 				}
-				
+
+		
 				SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				
 				Date date = null;
@@ -56,7 +57,6 @@ public class Occation {
 				try {
 					date = format.parse(temp[0]);
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				Plan event = new Plan(date, temp[1], temp[2], isRemind, temp[4]);
@@ -86,7 +86,7 @@ public class Occation {
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
-//		return events;
+
 	}
 	
 	public void removeEvent(String filename, Plan finished){ 
@@ -104,32 +104,41 @@ public class Occation {
 				for(int j = 0; j < 5; j++) {
 					temp[j] = temp[j].trim();
 				}
-				if(!(temp[0].equals(strDate) && temp[1].equals(finished.getTime()))) {
-					printer.write(fileLine);
-				}else {
+				System.out.println("temp[0]: " + temp[0] + "\nstrdate: " + strDate);
+				System.out.println("temp[1]: " + temp[1] + "\nfinsihed time: " + finished.getTime());
+
+				System.out.println((temp[0].equals(strDate) && temp[1].equals(finished.getTime())));
+				if(temp[0].equals(strDate) && temp[1].equals(finished.getTime())) {
+					System.out.println("removing...:");
 					events.remove(count);
+				}else {
+					System.out.println("adding to file...");
+					printer.write(fileLine);
+					printer.write(System.getProperty( "line.separator" ));
 				}
 				count++;
 			}
-				copyFiletoFile(file, tempFile);
-				//tempFile.delete();
 				scan.close();
 				printer.close();
+				copyFiletoFile(file, tempFile);
+				//tempFile.delete();
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void copyFiletoFile(File dest, File source) {
+	public void copyFiletoFile(File destination, File source) {
 		try {
-			FileWriter printer = new FileWriter(dest);
+			FileWriter printer = new FileWriter(destination);
 			Scanner scan = new Scanner( source );
 			
 			while(scan.hasNextLine()) {
 				String fileLine = scan.nextLine();
+				System.out.println("adding to me.csv" + fileLine);
 				printer.write(fileLine);
-				
+				printer.write(System.getProperty( "line.separator" ));
 			}
+			
 			scan.close();
 			printer.close();
 		}catch( IOException e ) {

@@ -36,6 +36,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	public void initialize(String month, String year) {
 		// TODO Auto-generated method stub
 		//load in the data of the current month
+
 		if(month.charAt(0) == '0')
 			month = String.valueOf(month.charAt(1));
 			

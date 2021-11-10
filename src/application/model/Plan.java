@@ -42,7 +42,7 @@ public class Plan { //java already has an Event class built in so i went with th
 	}
 
 	public String getDate() {
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy"); 
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yy"); 
 		String sdate = format.format(date);
 		//its probably going to be easier if this returns a string so we dont have to call this code every time
 		return sdate;
@@ -55,7 +55,8 @@ public class Plan { //java already has an Event class built in so i went with th
 	}
 	
 	public String remindersDisplay() {
-		return getDate() + " - " + convertToStandard() + "\t" + getName() + "\n";
+		return getDate() + " - " + getTime() + ": " + getName() + "\n";
+
 	}
 	
 	public Date getDateOb() {//just in case anyone wants the date object

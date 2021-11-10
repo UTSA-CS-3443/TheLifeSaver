@@ -84,23 +84,12 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			myEvents.loadEvents("data/monthlyEvents.csv");
 			notVisible();
 			int count = 0;
-			//System.out.println(myEvents.getEvents().size());
-			//TODO: read from file && while count <=20
-			//while(count < 20) {
 				for(Plan event : myEvents.getEvents()) {
-					System.out.println(event.remindersDisplay());
-				
-					System.out.println("entering for. count = " + count + "isRemind() = " + event.isRemind());
-					//TODO: check if isRemind = true if true 
 					if(count < 20 && event.isRemind()) {
-						System.out.println("entering if, isRemind was true");
-						System.out.println(boxes[count]);
-						//TODO: if true print remind increment count (make visible)
 						boxes[count].setText(event.remindersDisplay());
 						boxes[count].setVisible(true);
 						count++;
 					}
-				//}
 			}
 		}
 		
@@ -114,9 +103,8 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 			//TODO: check which checkbox was marked
 			for(int i = 0; i < 20; i++) {
 				if(boxes[i].isSelected()) {
-					//remove from file
-					//remove from arraylist
 					Plan finished = myEvents.getEvents().get(i);
+					System.out.println(finished.remindersDisplay());
 					myEvents.removeEvent("data/MonthlyEvents.csv", finished);
 					boxes[i].setDisable(true);
 					break;

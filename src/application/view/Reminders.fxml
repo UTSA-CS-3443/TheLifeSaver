@@ -109,7 +109,11 @@
                   <Font size="24.0" />
                </font>
             </CheckBox>
+<<<<<<< HEAD
+            <Button fx:id="main" layoutX="582.0" layoutY="162.0" mnemonicParsing="false" onAction="#goToMonthly" text="Go To Main" />
+=======
             <Button id="MainScreenButtons" fx:id="main" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToMonthly" stylesheets="@../../../styles/stylesheet.css" text="Back" />
+>>>>>>> f15b1d95813b50ef05f80c7d90205583464e57f8
          </children>
       </Pane>
    </children>
