@@ -254,7 +254,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	
 	
 	/**
-	 * Handles click events/Button press events on the event adder gui 
+	 * Handles click events/Button press events on the event adder gui,
+	 * and updates the calendar based on which event created
 	 * @param event
 	 */
 	public void addEventGuiHandler(Event event) {
@@ -322,12 +323,15 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		}
 	}
 	
+	/**
+	 * Handles click events/Button press events on the event remover gui,
+	 * and updates the calendar based on which event was chosen to be removed 
+	 * @param event
+	 */
 	public void removeEventGuiHandler(Event event) {
 		
-		Occation eventList = new Occation(), copyList = new Occation();
+		Occation eventList = new Occation();
 		eventList.loadEvents("data/monthlyEvents.csv");
-		copyList.loadEvents("data/monthlyEvents.csv");
-		
 		
 		int i = 1;
 		for(Plan eventObj : eventList.getEvents()) {
@@ -354,8 +358,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			
 			else {
 				
-				Plan eventToRemove = copyList.getEvents().get(Integer.parseInt(removeEventScroller.getValue().toString().split(" ")[0]) - 1);
-				copyList.removeEvent("data/monthlyEvents.csv", eventToRemove);
+				Plan eventToRemove = eventList.getEvents().get(Integer.parseInt(removeEventScroller.getValue().toString().split(" ")[0]) - 1);
+				eventList.removeEvent("data/monthlyEvents.csv", eventToRemove);
 				
 				try {
 				FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
