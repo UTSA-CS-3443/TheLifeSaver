@@ -28,6 +28,7 @@ import javafx.scene.layout.GridPane;
 import javafx.util.StringConverter;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.Node;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -37,11 +38,13 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	/**
 	 * Class/FXML Variables
 	 */
-	@FXML AnchorPane rootPane, addEventRoot;
+	@FXML AnchorPane rootPane, addEventRoot, removeEventRoot;
 	@FXML Button backButton, addButton, addEventAdd, addEventX, incrementMonth, decrementMonth;
+	@FXML Button removeButton, removeEventX, removeEventRemove;
 	@FXML TextField addEventName, addEventTime, addEventNotes;
+	@FXML ComboBox removeEventScroller;
 	@FXML DatePicker addEventDate;
-	@FXML Label MonthName, addEventError;
+	@FXML Label MonthName, addEventError, removeEventError;
 	@FXML CheckBox reminderCheckbox;
 	@FXML GridPane calenderGrid;
 	static String globalMonth;
@@ -70,6 +73,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		
 		addEventRoot.setVisible(false);
 		addEventError.setVisible(false);
+		
+		removeEventRoot.setVisible(false);
 		
 		eventlist = new Occation();
 		eventlist.loadEvents("data/monthlyEvents.csv");
@@ -260,6 +265,9 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		if(event.getSource().equals(addButton)) {
 			addEventRoot.setVisible(true);
 			addEventError.setVisible(false);
+			
+			if(removeEventRoot.isVisible())
+				removeEventRoot.setVisible(false);
 		}
 		else if(event.getSource().equals(addEventX)) {
 			addEventName.clear();
@@ -312,6 +320,55 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			}
 			
 		}
+	}
+	
+	public void removeEventGuiHandler(Event event) {
+		
+		Occation eventList = new Occation(), copyList = new Occation();
+		eventList.loadEvents("data/monthlyEvents.csv");
+		copyList.loadEvents("data/monthlyEvents.csv");
+		
+		
+		int i = 1;
+		for(Plan eventObj : eventList.getEvents()) {
+			removeEventScroller.getItems().add(i + " .) " + eventObj.remindersDisplay());
+			i++;
+		}
+		
+		if(event.getSource().equals(removeButton)) {
+
+			if(addEventRoot.isVisible())
+				addEventRoot.setVisible(false);
+			
+			removeEventError.setVisible(false);
+			removeEventScroller.valueProperty().set(null);
+			removeEventRoot.setVisible(true);	
+		}
+		else if(event.getSource().equals(removeEventX))
+			removeEventRoot.setVisible(false);
+		
+		else if(event.getSource().equals(removeEventRemove)) {
+			
+			if(removeEventScroller.getValue() == null)
+				removeEventError.setVisible(true);
+			
+			else {
+				
+				Plan eventToRemove = copyList.getEvents().get(Integer.parseInt(removeEventScroller.getValue().toString().split(" ")[0]) - 1);
+				copyList.removeEvent("data/monthlyEvents.csv", eventToRemove);
+				
+				try {
+				FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
+				AnchorPane newPane = (AnchorPane) loader.load();
+				rootPane.getChildren().setAll(newPane);
+				CalenderController control = loader.getController();
+				control.initialize(eventToRemove.getDate().split("/")[0], year);
+				}catch(Exception e) {e.printStackTrace();}
+				
+			}
+			
+		}
+		
 	}
 	
 	/**

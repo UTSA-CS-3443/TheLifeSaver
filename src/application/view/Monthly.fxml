@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -15,7 +21,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CalenderController">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CalenderController">
    <children>
       <Pane layoutX="24.0" layoutY="151.0" prefHeight="33.0" prefWidth="753.0" style="-fx-background-color: #3199e8;" />
       <GridPane fx:id="calenderGrid" alignment="CENTER" gridLinesVisible="true" layoutX="26.0" layoutY="186.0" prefHeight="600.0" prefWidth="750.0">
@@ -447,5 +453,31 @@
       </AnchorPane>
       <Button id="windows" fx:id="decrementMonth" layoutX="253.0" layoutY="65.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="&lt;" />
       <Button id="windows" fx:id="incrementMonth" layoutX="521.0" layoutY="66.0" mnemonicParsing="false" onAction="#handle" stylesheets="@../../../styles/stylesheet.css" text="&gt;" />
+      <Button id="MainScreenButtons" fx:id="removeButton" layoutX="736.0" layoutY="69.0" mnemonicParsing="false" onAction="#removeEventGuiHandler" prefHeight="42.0" prefWidth="41.0" stylesheets="@../../../styles/stylesheet.css" text="-">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="removeEventRoot" layoutX="200.0" layoutY="200.0" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: black; -fx-background-color: #ededed;">
+         <children>
+            <Pane prefHeight="62.0" prefWidth="400.0" style="-fx-background-color: #3199e8; -fx-border-color: black;">
+               <children>
+                  <Label alignment="CENTER" layoutX="84.0" layoutY="7.0" prefHeight="48.0" prefWidth="233.0" text="Remove Event">
+                     <font>
+                        <Font name="Britannic Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button id="MainScreenButtons" fx:id="removeEventX" layoutX="348.0" layoutY="10.0" mnemonicParsing="false" onAction="#removeEventGuiHandler" stylesheets="@../../../styles/stylesheet.css" text="X" />
+               </children>
+            </Pane>
+            <Button id="MainScreenButtons" fx:id="removeEventRemove" layoutX="142.0" layoutY="344.0" mnemonicParsing="false" onAction="#removeEventGuiHandler" stylesheets="@../../../styles/stylesheet.css" text="Remove Event" />
+            <ComboBox fx:id="removeEventScroller" layoutX="17.0" layoutY="87.0" prefHeight="25.0" prefWidth="366.0" />
+            <Label fx:id="removeEventError" layoutX="138.0" layoutY="306.0" text="Invalid Input" textFill="RED">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
