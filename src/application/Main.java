@@ -3,6 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
@@ -19,8 +20,10 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			//
+			
 			stage = primaryStage;
+			stage.getIcons().add(new Image("https://raw.githubusercontent.com/UTSA-CS-3443/TheLifeSaver/main/images/life%20perserver%20icon.png"));
+			stage.setTitle("LIFE SAVER GAAAAANG");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
