@@ -135,7 +135,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			  // Adds the event name to the correct date as long as the month and the day match the one on file
 			  for (Plan event: eventlist.getEvents()) 
 			    if (event.getDate().split("/")[2].equals(year) && event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(currDay)) || event.getDate().split("/")[1].equals(String.valueOf(currDay))))
-			      filler += String.format("-%s\n+%s\n", event.getName(), event.convertToStandard());
+			      filler += String.format("%s\n+%s\n", event.getName(), event.convertToStandard());
 
 			  
 			  // Actually set the text of the label(s)
