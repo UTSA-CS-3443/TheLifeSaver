@@ -11,6 +11,7 @@
 package application.controller;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -105,7 +106,12 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		int ct = 0, currDay = 1;
 		boolean flag = false;
 		String filler;
-		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();  
+		String actualCurrentMonth = now.format(dtf).split("/")[1];
+		String actualCurrentDay = now.format(dtf).split("/")[2].split(" ")[0];
+
+		System.out.println(actualCurrentDay);
 		if(month.length() == 1)
 			month = "0" + month;
 		
@@ -130,9 +136,17 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			  // Actually set the text of the label(s)
 			  // You literally need to specify the "instanceof" condition, otherwise ERROR ERROR ERROR
 			  if (node instanceof Label && flag && currDay <= days) {
+				  
+				if( Integer.parseInt(month) < Integer.parseInt(actualCurrentMonth) )
+					((Label) node).setStyle("-fx-text-fill: red;");
+				else if(Integer.parseInt(month) == Integer.parseInt(actualCurrentMonth))
+					if(Integer.parseInt(actualCurrentDay) > currDay)
+						((Label) node).setStyle("-fx-text-fill: red;");
+					
 			    ((Label) node).setText(filler);
 			    currDay++;
-			  } else if (node instanceof Label && ct >= days) {
+			  } 
+			  else if (node instanceof Label && ct >= days) {
 				  ((Label) node).setText("");
 				  ((Label) node).setStyle("-fx-background-color:#d4d4d4;");
 			  }

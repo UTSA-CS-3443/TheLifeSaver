@@ -158,6 +158,11 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 	public void checkEvent(String[] days, Occation eventlist, String month) {
 		
 		int i = 0;
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();  
+		String actualCurrentMonth = now.format(dtf).split("/")[1];
+		String actualCurrentDay = now.format(dtf).split("/")[2].split(" ")[0];
+		
 		for(Node node : weeklyGrid.getChildren()) {
 			
 			String curr_day = "", total = "";
@@ -172,8 +177,16 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 				else total += "";
 			}
 			
-			if(node instanceof Label)
+			if(node instanceof Label) {
+				if( Integer.parseInt(month) < Integer.parseInt(actualCurrentMonth) )
+					((Label) node).setStyle("-fx-text-fill: red;");
+				else if(Integer.parseInt(month) == Integer.parseInt(actualCurrentMonth))
+					if(Integer.parseInt(actualCurrentDay) > Integer.parseInt(curr_day))
+						((Label) node).setStyle("-fx-text-fill: red;");
+				
+				
 				((Label) node).setText(total);
+			}
 		}
 		
 	}
