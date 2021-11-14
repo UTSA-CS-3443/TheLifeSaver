@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -13,7 +15,15 @@
             <Image url="@../../../images/main%20page.png" />
          </image>
       </ImageView>
-      <Button id="MainScreenButtons" fx:id="dailyBtn" layoutX="409.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="To-Do List" wrapText="true" />
+      <Label layoutX="425.0" layoutY="660.0" text="To-Do List" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button id="MainScreenButtons" fx:id="dailyBtn" alignment="CENTER" layoutX="409.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Daily" wrapText="true">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Button>
       <Button id="MainScreenButtons" fx:id="monthlyBtn" layoutX="161.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Monthly" />
       <Button id="MainScreenButtons" fx:id="remindBtn" layoutX="535.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Reminders" />
       <Button id="MainScreenButtons" fx:id="weeklyBtn" layoutX="284.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Weekly" />
