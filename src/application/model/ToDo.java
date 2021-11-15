@@ -114,6 +114,25 @@ public class ToDo {
 	public void setName(String name) {
 		this.name = name;
 	}
+		/**
+	 * Converts the time of a task to standard time for easy reading
+	 * @return Standard time in string format
+	 */
+	public String convertToStandard() {
+		
+		try {
+			
+		Date date = new SimpleDateFormat("hhmm").parse(String.format("%04d", Integer.parseInt(getTime())));
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+		
+		return sdf.format(date);
+		}
+		catch(ParseException e) {e.printStackTrace();}
+		
+		return null;
+		
+		
+	}
 }
 	
 
