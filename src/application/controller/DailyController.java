@@ -78,8 +78,8 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 				//if(myItemsArr.get(i).getDate().equals(LocalDate.now())) {
 				
 				
-				System.out.println(myItemsArr.get(i).getDate()  + myItemsArr.get(i).getName()+ myItemsArr.get(i).getTime());
-				boxes[i].setText(myItemsArr.get(i).getDate()  +" - " + myItemsArr.get(i).getName()+ " at " + myItemsArr.get(i).getTime());
+				System.out.println(myItemsArr.get(i).getDate()  + myItemsArr.get(i).getName()+ myItemsArr.get(i).convertToStandard());
+				boxes[i].setText(myItemsArr.get(i).getDate()  +" - " + myItemsArr.get(i).getName()+ " at " + myItemsArr.get(i).convertToStandard());
 				boxes[i].setVisible(true);
 				//}
 			}
