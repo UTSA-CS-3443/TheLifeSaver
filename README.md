@@ -12,10 +12,10 @@ git clone <Repository Clone URI>
 ## Requirements
 **IMPORTANT** - Your IDE **_must_** have the JavaFX SDK added to the Module/Classpath of the project in order to run the application.
 
-- (Preferred) Ensure your system date is in 2021 
+- Ensure your system date is in 2021 
+- Must have an internet connection (Just to grab a picture from the web)
 
 ## Running the application
 Run the application normally (green "Run" button if using preferred Eclipse IDE).
 
-## Video Demonstration
-TODO: Add youtube link here
+
