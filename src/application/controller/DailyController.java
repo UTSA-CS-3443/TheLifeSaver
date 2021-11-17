@@ -8,10 +8,9 @@
  */
 package application.controller;
 
-import application.controller.CalenderController;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -27,11 +26,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-//import javafx.scene.control.TextArea;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 public class DailyController implements EventHandler<ActionEvent>, Initializable {
 	
@@ -65,6 +64,11 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 
 	private CheckBox[] boxes;
 	
+	/**
+	 * Populates the To-Do list view with our events before the scene fully loads
+	 * @param location, URL
+	 * @param resources, ResourceBundle
+	 */
 		public void initialize(URL location, ResourceBundle resources) {
 			addEventRoot.setVisible(false);
 			addEventError.setVisible(false);
@@ -73,32 +77,33 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 			myItems.loadItems("data/items.csv");
 			notVisible();
 			ArrayList<ToDo> myItemsArr = myItems.getItems();
-			System.out.println(myItemsArr.size());
+			LocalDate ld = LocalDate.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			String formattedString = ld.format(formatter);
 			for(int i = 0; i < myItemsArr.size(); i++) {
-				//if(myItemsArr.get(i).getDate().equals(LocalDate.now())) {
-				
-				
-				System.out.println(myItemsArr.get(i).getDate()  + myItemsArr.get(i).getName()+ myItemsArr.get(i).getTime());
-				boxes[i].setText(myItemsArr.get(i).getDate()  +" - " + myItemsArr.get(i).getName()+ " at " + myItemsArr.get(i).getTime());
+				if(myItemsArr.get(i).getDate().equals(formattedString)) {
+				boxes[i].setText(myItemsArr.get(i).getDate()  +" - " + myItemsArr.get(i).getName()+ " at " + myItemsArr.get(i).convertToStandard());
 				boxes[i].setVisible(true);
-				//}
+				}
 			}
 		}
-		
-		
+		/**
+		 * Handles the CheckBox events- disabling/change to red when checked
+		 * @param event, ActionEvent
+		 */
 		@Override
 		public void handle(ActionEvent event) {
 			for(int i = 0; i < 15; i++) {
 			if(boxes[i].isSelected()) {
+				boxes[i].setTextFill(Color.RED);
 				boxes[i].setDisable(true);
-				//myItems.getItems().remove(i);
-
 				}
-			}
-			
+			}	
 		}
-	
-
+		/**
+		 * Sends the user to a different view, Main view.
+		 * @param event, ActionEvent
+		 */
 		public void goBack(ActionEvent event) {
 			try {
 				AnchorPane root = new AnchorPane();
@@ -114,8 +119,9 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 				e.printStackTrace();
 			}
 		}
-		
-
+		/**
+		 *   Sets all the checkBoxes to not visible.
+		 */
 		public void notVisible() {
 			item1.setVisible(false);
 			item2.setVisible(false);
@@ -134,7 +140,10 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 			item15.setVisible(false);
 		}	
 		
-
+		/**
+		 * Handles the button press events on the event adder GUI
+		 * @param event
+		 */
 		public void addEventGuiHandler(Event event) {
 		
 			if(event.getSource().equals(addButton)) {
@@ -186,5 +195,5 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 				
 			}
 		}
-		
 }
+
