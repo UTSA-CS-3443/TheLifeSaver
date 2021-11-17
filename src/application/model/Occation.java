@@ -115,15 +115,9 @@ public class Occation {
 				for(int j = 0; j < 5; j++) {
 					temp[j] = temp[j].trim();
 				}
-				//System.out.println("temp[0]: " + temp[0] + "\nstrdate: " + strDate);
-				//System.out.println("temp[1]: " + temp[1] + "\nfinsihed time: " + finished.getTime());
-
-				//System.out.println((temp[0].equals(strDate) && temp[1].equals(finished.getTime())));
 				if(temp[0].equals(strDate) && temp[1].equals(finished.getTime())) {
-					//System.out.println("removing...:");
 					events.remove(count);
 				}else {
-					//System.out.println("adding to file...");
 					printer.write(fileLine);
 					printer.write(System.getProperty( "line.separator" ));
 				}
@@ -133,7 +127,6 @@ public class Occation {
 				scan.close();
 				printer.close();
 				copyFiletoFile(file, tempFile);
-				//tempFile.delete();
 		}catch( IOException e ) {
 			e.printStackTrace();
 		}
@@ -152,7 +145,6 @@ public class Occation {
 			
 			while(scan.hasNextLine()) {
 				String fileLine = scan.nextLine();
-				//System.out.println("adding to me.csv" + fileLine);
 				printer.write(fileLine);
 				printer.write(System.getProperty( "line.separator" ));
 			}
@@ -194,8 +186,6 @@ public class Occation {
 			
 			printWriter.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			
 			e.printStackTrace();
 		}
 

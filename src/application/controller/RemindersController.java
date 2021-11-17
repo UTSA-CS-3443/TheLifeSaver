@@ -211,7 +211,6 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 					String vals[];
 					String newDate;
 					
-					// CREATE THE EVENT WITH THE INFO HERE
 					try {
 					if(addEventDate.getValue() == null ){
 						vals = addEventDate.getEditor().getText().split("/");
@@ -222,19 +221,15 @@ public class RemindersController implements EventHandler<ActionEvent>, Initializ
 						newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
 					}
 					
-					//append the new event to the end of the file
 					myEvents.appendToFile(new Plan(newDate, addEventTime.getText(),addEventName.getText(),reminderCheckbox.isSelected(), addEventNotes.getText() ));
 					
-					//reload the view
 					FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Reminders.fxml"));
 					AnchorPane newPane = (AnchorPane) loader.load();
 					rootPane.getChildren().setAll(newPane);
-					
 					
 					}catch(Exception e) {e.printStackTrace();}
 				}
 				
 			}
 		}
-		
 }
