@@ -2,7 +2,7 @@
  * DailyController is responsible for adding/removing tasks from the
  * Daily view
  * 
- * @author Jade Manriquez
+ * @author Jade Manriquez - pwz823
  * 
  * UTSA CS 3443 - Final_Project - TheLifeSaver
  */

@@ -3,7 +3,7 @@
  * as well as general formatting of the calendar itself
  * 
  * @author Tanner Bibb - ybw098
- * @author Calvin Newcomb - <ENTER abc123 HERE>
+ * @author Calvin Newcomb - vbr868
  * 
  * UTSA CS 3443 - Final_Project - TheLifeSaver
  */

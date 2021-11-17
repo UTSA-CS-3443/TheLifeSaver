@@ -2,11 +2,9 @@
  * Plan is responsible for creating "event" objects that contain all information pertaining
  * to a specific event, e.g. name, time, date, notes etc.
  * 
- * @author Calvin Newcomb - <ENTER abc123 HERE>
+ * @author Calvin Newcomb - vbr868
  * @author Tanner Bibb - ybw098
- * 
- * <Im not entirely sure who all worked on this, so add your name if you did :)>
- * 
+ * @author Molly Frost - iav811
  * 
  * UTSA CS 3443 - Final_Project - TheLifeSaver
  */

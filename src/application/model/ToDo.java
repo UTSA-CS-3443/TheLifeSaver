@@ -2,7 +2,7 @@
  * ToDo is responsible for creating objects that contain all information pertaining
  * to a specific task: name, time, date
  * 
- * @author Jade Manriquez
+ * @author Jade Manriquez - pwz823
  *
  * UTSA CS 3443 - Final_Project - TheLifeSaver
  */

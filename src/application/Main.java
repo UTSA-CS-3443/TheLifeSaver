@@ -1,3 +1,10 @@
+/**
+ *  A class that creates the primary stage and sets the scene for the Javafx application.
+ * 
+ * @author Tanner Bibb - ybw098
+ * UTSA CS 3443 - Final_Project - TheLifeSaver
+ *
+ */
 package application;
 	
 import javafx.application.Application;
