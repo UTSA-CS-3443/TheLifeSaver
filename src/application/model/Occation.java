@@ -21,7 +21,7 @@ import java.util.Scanner;
  
 public class Occation {
 
-	ArrayList<Plan> events;
+	private ArrayList<Plan> events;
 	
 	/**
 	 * Default Constructor
