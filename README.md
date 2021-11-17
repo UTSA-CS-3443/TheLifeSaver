@@ -15,6 +15,9 @@ git clone <Repository Clone URI>
 - Ensure your system date is in 2021 
 - Must have an internet connection (Just to grab a picture from the web)
 
+## Known Issues
+- Error when trying to remove an event that has an identical copy of itself in the monthlyEvents.csv
+
 ## Running the application
 Run the application normally (green "Run" button if using preferred Eclipse IDE).
 
