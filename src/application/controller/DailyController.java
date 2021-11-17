@@ -77,13 +77,11 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 			myItems.loadItems("data/items.csv");
 			notVisible();
 			ArrayList<ToDo> myItemsArr = myItems.getItems();
-			System.out.println(myItemsArr.size());
 			LocalDate ld = LocalDate.now();
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 			String formattedString = ld.format(formatter);
 			for(int i = 0; i < myItemsArr.size(); i++) {
 				if(myItemsArr.get(i).getDate().equals(formattedString)) {
-				//System.out.println(myItemsArr.get(i).getDate()  + myItemsArr.get(i).getName()+ myItemsArr.get(i).convertToStandard());
 				boxes[i].setText(myItemsArr.get(i).getDate()  +" - " + myItemsArr.get(i).getName()+ " at " + myItemsArr.get(i).convertToStandard());
 				boxes[i].setVisible(true);
 				}
@@ -102,7 +100,6 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 				}
 			}	
 		}
-	
 		/**
 		 * Sends the user to a different view, Main view.
 		 * @param event, ActionEvent
@@ -122,7 +119,6 @@ public class DailyController implements EventHandler<ActionEvent>, Initializable
 				e.printStackTrace();
 			}
 		}
-		
 		/**
 		 *   Sets all the checkBoxes to not visible.
 		 */
