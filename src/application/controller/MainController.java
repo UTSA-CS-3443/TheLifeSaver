@@ -50,7 +50,7 @@ public class MainController implements EventHandler<ActionEvent> {
 		
 			switch(tmp.getText()) {
 			
-			case "Daily": 
+			case "To-Do List": 
 				loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Daily.fxml"));
 				newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);
