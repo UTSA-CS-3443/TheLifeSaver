@@ -65,17 +65,6 @@ public class ToDoItem {
 		  }
 
 		}
-	
-	/**
-	 * Removes a specified event from a designated file
-	 * 
-	 * @param filename
-	 * @param finished
-	 */
-	public void removeItem(ToDo item){ 
-		//items.remove(item);
-		
-	}
 	       
 	/**
 	 * Adds an item to our item arraylist
@@ -87,7 +76,7 @@ public class ToDoItem {
 	}
 
 	/**
-	 * Writes the contents of a plan object into a designated events CSV
+	 * Writes the contents of a new Item into the csv file
 	 * 
 	 * @param newPlan
 	 */
