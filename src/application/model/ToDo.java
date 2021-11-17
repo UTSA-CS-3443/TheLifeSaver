@@ -1,6 +1,6 @@
 /**
  * ToDo is responsible for creating objects that contain all information pertaining
- * to a specific task, name, time, date
+ * to a specific task: name, time, date
  * 
  * @author Jade Manriquez
  *
@@ -36,11 +36,8 @@ public class ToDo {
 		this.date = date;
 		this.time = time;
 		this.name = name;
-
-		
 	}
 	
-
 	public ToDo( String date, String time, String name) {
 		
 		DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -65,7 +62,6 @@ public class ToDo {
 		
 		return sdate;
 	}
-	
 	
 	/**
 	 * Gets the date as an object
@@ -114,7 +110,8 @@ public class ToDo {
 	public void setName(String name) {
 		this.name = name;
 	}
-		/**
+	
+	/**
 	 * Converts the time of a task to standard time for easy reading
 	 * @return Standard time in string format
 	 */
