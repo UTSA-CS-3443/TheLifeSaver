@@ -1,3 +1,12 @@
+/**
+ * WeeklyController takes the current day and gives a weekly layout of the specific events
+ * of that week. 
+ * 
+ * @author Tanner Bibb - ybw098
+ * @author Leann Dunaway - ajb733
+ * 
+ * UTSA CS 3443 - Final_Project - TheLifeSaver
+ */
 package application.controller;
 
 import javafx.fxml.FXML;
@@ -28,6 +37,9 @@ import javafx.scene.control.Label;
 
 public class WeeklyController implements EventHandler<ActionEvent>, Initializable {
 
+	/**
+	 * Class/FXML variables
+	 */
 	@FXML AnchorPane rootPane;
 	@FXML Button backButton;
 	@FXML GridPane weeklyGrid;
@@ -43,7 +55,12 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
     @FXML private Button sunButton;
     @FXML private Button tuesButton;
    
-    
+	/**
+	 * Populates the weekly view with the correct dates of that week
+	 * and the events of that week before the scene fully loads
+	 * @param location, URL
+	 * @param resources, ResourceBundle
+	 */
 	@Override
     public void initialize(URL location, ResourceBundle resources){
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");  
@@ -51,7 +68,6 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		String month = now.format(dtf).split("/")[0];
 		String day = now.format(dtf).split("/")[1];
 		
-		//ik its alot, but reads in the current date and only shows that weeks dates
 	    LocalDateTime sun=now;
 		LocalDateTime mon = now;
 		LocalDateTime tue = now;
@@ -154,7 +170,12 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		}
 		
 	}
-	
+	/**
+	 * Method to check if any events are present in the current week
+	 * @param String[]
+	 * @param Occation
+	 * @param String
+	 */
 	public void checkEvent(String[] days, Occation eventlist, String month) {
 		
 		int i = 0;
@@ -191,7 +212,10 @@ public class WeeklyController implements EventHandler<ActionEvent>, Initializabl
 		
 	}
 	
-		
+	/**
+	 * Handles the click events/Button press events on the Weekly calendar scene
+	 * @param event
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		Button temp = (Button) event.getSource();
