@@ -5,6 +5,7 @@
  * @author Calvin Newcomb - vbr868
  * @author Tanner Bibb - ybw098
  * @author Molly Frost - iav811
+ * @author Leann Dunaway -ajb733
  * 
  * UTSA CS 3443 - Final_Project - TheLifeSaver
  */
