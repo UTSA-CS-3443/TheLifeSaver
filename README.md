@@ -21,4 +21,6 @@ git clone <Repository Clone URI>
 ## Running the application
 Run the application normally (green "Run" button if using preferred Eclipse IDE).
 
+## Meet The Fantastic Five!
 
+**Tanner Bibb, Molly Frost, Leann Dunaway, Calvin Newcomb, Jade Manriquez** 
