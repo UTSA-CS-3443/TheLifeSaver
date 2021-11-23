@@ -57,8 +57,7 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	 * @param year
 	 */
 	public void initialize(String month, String year) {
-		// TODO Auto-generated method stub
-		//load in the data of the current month
+		
 		this.year = year;
 
 		if(month.charAt(0) == '0')
@@ -79,12 +78,9 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		eventlist = new Occation();
 		eventlist.loadEvents("data/monthlyEvents.csv");
 		
-		//find the number of days in the month
 		Calendar c = new GregorianCalendar(Integer.parseInt(year), Integer.parseInt(month) - 1, 1);
 		int days = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 		int fdaypos = -1;
-		
-		//find the position in the week we will start the month in
 		
 		switch( LocalDate.of( Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt("01") ).getDayOfWeek().toString() ){
 			case "MONDAY":		fdaypos = 1;
@@ -100,11 +96,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			case "SATURDAY":	fdaypos = 6;
 			break;
 			case "SUNDAY":		fdaypos = 0;
-			default: System.out.println("fdaypos reader is broken");
+			default: System.out.println(" ");
 		}
-		
-		
-		//load month data into the calendar--------------------------------
 		
 		MonthName.setText(Month.of(Integer.parseInt(month)).name());
 		
@@ -116,30 +109,22 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 		String actualCurrentMonth = now.format(dtf).split("/")[1];
 		String actualCurrentDay = now.format(dtf).split("/")[2].split(" ")[0];
 
-		System.out.println(actualCurrentDay);
 		if(month.length() == 1)
 			month = "0" + month;
 		
 		for (Node node: calenderGrid.getChildren()) {
 	
-			 // The actual text that'll be put in the cell(s)
 			  filler = "";
-			  
-			  // Don't start writing the day & event info until we reach the
-			  // First day of the week that the month begins on
+			 
 			  if (ct == fdaypos)
 			    flag = true;
 
 			  filler += String.format("%s\n", String.valueOf(currDay)); 
 			  
-			  // Adds the event name to the correct date as long as the month and the day match the one on file
 			  for (Plan event: eventlist.getEvents()) 
 			    if (event.getDate().split("/")[2].equals(year) && event.getDate().split("/")[0].equals(month) && (event.getDate().split("/")[1].equals("0" + String.valueOf(currDay)) || event.getDate().split("/")[1].equals(String.valueOf(currDay))))
 			      filler += String.format("%s\n+%s\n", event.getName(), event.convertToStandard());
 
-			  
-			  // Actually set the text of the label(s)
-			  // You literally need to specify the "instanceof" condition, otherwise ERROR ERROR ERROR
 			  if (node instanceof Label && flag && currDay <= days) {
 				  
 				if( Integer.parseInt(month) < Integer.parseInt(actualCurrentMonth) )
@@ -165,8 +150,6 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 			  ct++;
 
 			}
-		
-		//--------------------------------------------------------------
 		
 		
 		//Print event data to console for testing purposes
@@ -260,9 +243,6 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 	 */
 	public void addEventGuiHandler(Event event) {
 		
-		
-		
-		
 		if(event.getSource().equals(addButton)) {
 			addEventRoot.setVisible(true);
 			addEventError.setVisible(false);
@@ -287,15 +267,12 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 				addEventError.setVisible(true);
 			}
 			else {
-				
-				System.out.println(addEventDate.getEditor().getText());
-				
+		
 				addEventRoot.setVisible(false);
 				
 				String vals[];
 				String newDate;
 				
-				// CREATE THE EVENT WITH THE INFO HERE
 				try {
 				if(addEventDate.getValue() == null ){
 					vals = addEventDate.getEditor().getText().split("/");
@@ -306,10 +283,8 @@ public class CalenderController implements javafx.event.EventHandler<Event>{
 					newDate = String.format("%s/%s/%s", vals[1], vals[2], vals[0]);
 				}
 				
-				//append the new event to the end of the file
 				eventlist.appendToFile(new Plan(newDate, addEventTime.getText(),addEventName.getText(),reminderCheckbox.isSelected(), addEventNotes.getText() ));
 				
-				//reload the view
 				FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("application/view/Monthly.fxml"));
 				AnchorPane newPane = (AnchorPane) loader.load();
 				rootPane.getChildren().setAll(newPane);

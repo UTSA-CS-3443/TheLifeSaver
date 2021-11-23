@@ -73,7 +73,7 @@ public class Occation {
 		        if (event.getDateOb().compareTo(events.get(i).getDateOb()) < 0) {
 		          events.add(i, event);
 		          added = true;
-		          break;
+		          break;    
 		        } else if (event.getDateOb().compareTo(events.get(i).getDateOb()) == 0) {
 		          if (Integer.parseInt(event.getTime()) < Integer.parseInt(events.get(i).getTime())) {
 		            events.add(i, event);

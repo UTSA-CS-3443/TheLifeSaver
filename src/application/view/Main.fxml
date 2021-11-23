@@ -19,7 +19,6 @@
             <Image url="@../../../images/main%20page.png" />
          </image>
       </ImageView>
-<<<<<<< HEAD
       <Label layoutX="425.0" layoutY="660.0" text="To-Do List" textFill="WHITE">
          <font>
             <Font size="14.0" />
@@ -29,10 +28,10 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></Button>
-=======
+
       <Button id="MainScreenButtons" fx:id="dailyBtn" layoutX="409.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Daily" wrapText="true" />
       <Button id="MainScreenButtons" fx:id="dailyBtn" layoutX="409.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="To-Do List" wrapText="true" />
->>>>>>> da0b31e5a5ea4294f5b551ed8086a0a01672faba
+
       <Button id="MainScreenButtons" fx:id="monthlyBtn" layoutX="161.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Monthly" />
       <Button id="MainScreenButtons" fx:id="remindBtn" layoutX="535.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Reminders" />
       <Button id="MainScreenButtons" fx:id="weeklyBtn" layoutX="284.0" layoutY="616.0" mnemonicParsing="false" onAction="#handle" prefHeight="79.0" prefWidth="103.0" stylesheets="@../../../styles/stylesheet.css" text="Weekly" />
