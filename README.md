@@ -19,7 +19,7 @@ git clone <Repository Clone URI>
 - Error when trying to remove an event that has an identical copy of itself in the monthlyEvents.csv
 
 ## Running the application
-Run the application normally (green "Run" button if using preferred Eclipse IDE).
+Import the project into Eclipse, adhere to the requirements, run the Main class in the application package.
 
 ## Meet The Fantastic Five!
 
